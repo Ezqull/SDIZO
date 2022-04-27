@@ -5,37 +5,18 @@
 #include <iostream>
 #include "Array.hpp"
 
-Array::Array(const int &arraySize) : arraySize(arraySize) {
+Array::Array(int arraySize) : arraySize(arraySize) {
     if(arraySize == 0){
         return;
     }
     array = new int[arraySize];
 }
 
-Array::Array(const std::initializer_list<int> &list) : Array(list.size()){
-    int i = 0;
-    for(int val : list){
-        array[i] = val;
-    }
-}
-
 Array::~Array() {
     delete[] array;
 }
 
-void Array::resize(const int &size) {
-
-    int *newArray = new int[size];
-
-    std::copy(array, array + std::min(arraySize, size), newArray);
-
-    delete[] array;
-    array = newArray;
-
-    arraySize = size;
-}
-
-void Array::insert(const int &val, const int &index){
+void Array::insert(int val, int index){
     if (index >= arraySize) {
         std::cout << "Inserting element outside of array!";
     }
@@ -54,7 +35,7 @@ void Array::insert(const int &val, const int &index){
     arraySize = newSize;
 }
 
-void Array::pushBeg(const int &val) {
+void Array::pushBeg(int val) {
 
     int newSize = arraySize + 1;
     int *newArray = new int[newSize];
@@ -69,7 +50,7 @@ void Array::pushBeg(const int &val) {
     arraySize = newSize;
 }
 
-void Array::pushEnd(const int &val) {
+void Array::pushEnd(int val) {
 
     int newSize = arraySize + 1;
     int *newArray = new int[newSize];
@@ -110,7 +91,7 @@ void Array::popEnd() {
     arraySize = newSize;
 }
 
-void Array::deleteVal(const int &val) {
+void Array::deleteVal(int val) {
 
     if(!containst(val)){
         std::cout << "Value not found";
@@ -137,7 +118,7 @@ void Array::deleteVal(const int &val) {
     }
 }
 
-bool Array::containst(const int &val) {
+bool Array::containst(int val) {
 
     for (int i = 0; i < arraySize; i++) {
         if (array[i] == val) {

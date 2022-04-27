@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/cmake-build-debug"
+			"value" : "c:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -623,7 +623,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P"
+			"value" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/cmake-build-debug"
+			"value" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"
 		},
 		{
 			"name" : "SDiZO___P_IS_TOP_LEVEL",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P"
+			"value" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO"
 		}
 	],
 	"kind" : "cache",

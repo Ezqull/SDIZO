@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/cmake-build-debug",
-		"source" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P"
+		"build" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug",
+		"source" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO"
 	},
 	"version" : 
 	{

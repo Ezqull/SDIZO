@@ -9,22 +9,19 @@ private:
     int* array = nullptr;
 
 public:
-    Array(const int &arraySize = 0);
-    Array(const std::initializer_list<int> &list);
+    Array(int arraySize = 0);
     ~Array();
 
-    void resize(const int &size);
+    void insert(int val, int index);
 
-    void insert(const int &val, const int &index);
-
-    void pushBeg(const int &val);
-    void pushEnd(const int &val);
+    void pushBeg(int val);
+    void pushEnd(int val);
 
     void popBeg();
     void popEnd();
-    void deleteVal(const int &val);
+    void deleteVal(int val);
 
-    bool containst(const int &val);
+    bool containst(int val);
 
     void print() const;
 };
