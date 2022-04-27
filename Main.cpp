@@ -39,7 +39,7 @@ vector<int> readFile() {
     return vals;
 }
 
-char getUserInput(){
+char getUserInputChar(){
     char input;
     cin >> input;
 
@@ -64,7 +64,7 @@ void arrayMenu(){
     while (1) {
         cout << "Choose operation: \n" + operations;
 
-        switch (getUserInput()) {
+        switch (getUserInputChar()) {
             case 'r': {
                 auto vals = readFile();
                 for (auto val: vals) {
@@ -75,7 +75,7 @@ void arrayMenu(){
             case 'a': {
                 cout << "Choose position: " + options;
 
-                switch (getUserInput()) {
+                switch (getUserInputChar()) {
                     case 'b':{
                         cout << "Write value to add: \n";
                         array.pushBeg(getUserInputNum());
@@ -107,7 +107,7 @@ void arrayMenu(){
             case 'd': {
                 cout << "Choose position: " + options;
 
-                switch (getUserInput()) {
+                switch (getUserInputChar()) {
                     case 'b':{
                         array.popBeg();
                         break;
@@ -131,7 +131,7 @@ void arrayMenu(){
             case 'c':
                 cout << "Choose value to check: \n";
 
-                if (array.containst(getUserInput())){
+                if (array.containst(getUserInputChar())){
                     cout << "Array containst this value." << endl;
 
                 }else {
@@ -159,7 +159,7 @@ int main() {
 
     while(1){
         cout << "Choose structure: \n" + structures;
-        switch (getUserInput()) {
+        switch (getUserInputChar()) {
             case 'a':
                 arrayMenu();
                 break;
