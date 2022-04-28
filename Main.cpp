@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "Array.hpp"
+#include "List.hpp"
 
 using namespace std;
 
@@ -131,8 +132,8 @@ void arrayMenu(){
             case 'c':
                 cout << "Choose value to check: \n";
 
-                if (array.containst(getUserInputChar())){
-                    cout << "Array containst this value." << endl;
+                if (array.contains(getUserInputNum())){
+                    cout << "Array contains this value." << endl;
 
                 }else {
                     cout << "Array doesn't contain this value." << endl;
@@ -154,6 +155,103 @@ void arrayMenu(){
     }
 }
 
+void listMenu(){
+    List list;
+    const string options = "\nb - beginning\ne - end\nc - choose\n";
+
+    while (1){
+        cout << "Choose operation: \n" + operations;
+
+        switch (getUserInputChar()) {
+            case 'r': {
+                auto vals = readFile();
+                for (auto val: vals) {
+                    list.pushBeg(val);
+                }
+                break;
+            }
+            case 'a': {
+                cout << "Choose position: " + options;
+
+                switch (getUserInputChar()) {
+                    case 'b':{
+                        cout << "Write value to add: \n";
+                        list.pushBeg(getUserInputNum());
+                        break;
+                    }
+
+                    case 'e':{
+                        cout << "Write value to add: \n";
+                        list.pushEnd(getUserInputNum());
+                        break;
+                    }
+
+                    case 'c':{
+
+                        cout << "Write value to add: \n";
+                        const int val = getUserInputNum();
+
+                        cout << "Write position: \n";
+                        const int pos = getUserInputNum();
+
+                        list.insert(val, pos);
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+            case 'd': {
+                cout << "Choose position: " + options;
+
+                switch (getUserInputChar()) {
+                    case 'b':{
+                        list.popBeg();
+                        break;
+                    }
+
+                    case 'e':{
+                        list.popEnd();
+                        break;
+                    }
+
+                    case 'c':{
+                        cout << "Write value to delete: \n";
+                        list.deleteVal(getUserInputNum());
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+            case 'c':
+                cout << "Choose value to check: \n";
+
+                if (list.contains(getUserInputNum())){
+                    cout << "Array contains this value." << endl;
+
+                }else {
+                    cout << "Array doesn't contain this value." << endl;
+                }
+
+                break;
+
+            case 'p': {
+
+                list.print();
+
+                break;
+            }
+
+            case 'm': {
+                return;
+            }
+        }
+    }
+}
+
 int main() {
     const string structures = "a - Array\nl - List\nb - Binary Heap\nr - Red Black Tree\nq - Quit\n";
 
@@ -162,6 +260,10 @@ int main() {
         switch (getUserInputChar()) {
             case 'a':
                 arrayMenu();
+                break;
+
+            case 'l':
+                listMenu();
                 break;
 
             case 'q':

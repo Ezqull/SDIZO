@@ -16,7 +16,7 @@ public:
     void popEnd();
     void deleteVal(int val);
 
-    bool containst(int val);
+    bool contains(int val);
 
     void print() const;
 };

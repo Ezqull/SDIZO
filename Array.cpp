@@ -18,7 +18,7 @@ Array::~Array() {
 
 void Array::insert(int val, int index){
     if (index >= arraySize) {
-        std::cout << "Inserting element outside of array!";
+        std::cout << "Inserting nodePointer outside of array!";
     }
 
     int newSize = arraySize + 1;
@@ -93,7 +93,7 @@ void Array::popEnd() {
 
 void Array::deleteVal(int val) {
 
-    if(!containst(val)){
+    if(!contains(val)){
         std::cout << "Value not found";
         return;
 
@@ -118,7 +118,7 @@ void Array::deleteVal(int val) {
     }
 }
 
-bool Array::containst(int val) {
+bool Array::contains(int val) {
 
     for (int i = 0; i < arraySize; i++) {
         if (array[i] == val) {
