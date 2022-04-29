@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Array.hpp"
 #include "List.hpp"
+#include "Heap.hpp"
 
 using namespace std;
 
@@ -230,10 +231,10 @@ void listMenu(){
                 cout << "Choose value to check: \n";
 
                 if (list.contains(getUserInputNum())){
-                    cout << "Array contains this value." << endl;
+                    cout << "List contains this value." << endl;
 
                 }else {
-                    cout << "Array doesn't contain this value." << endl;
+                    cout << "List doesn't contain this value." << endl;
                 }
 
                 break;
@@ -242,6 +243,58 @@ void listMenu(){
 
                 list.print();
 
+                break;
+            }
+
+            case 'm': {
+                return;
+            }
+        }
+    }
+}
+
+void heapMenu(){
+    Heap heap;
+
+    while (1){
+        cout << "\nChoose operation: \n" + operations;
+
+        switch (getUserInputChar()) {
+            case 'r': {
+                auto vals = readFile();
+                for (auto val: vals) {
+                    heap.add(val);
+                }
+                break;
+            }
+
+            case 'a': {
+                cout << "Write value to add: \n";
+                heap.add(getUserInputNum());
+                break;
+            }
+
+            case 'd': {
+                cout << "Write value to delete: \n";
+                heap.deleteVal(getUserInputNum());
+                break;
+            }
+
+            case 'c': {
+                cout << "Choose value to check: \n";
+
+                if (heap.contains(getUserInputNum())){
+                    cout << "Heap contains this value." << endl;
+
+                }else {
+                    cout << "Heap doesn't contain this value." << endl;
+                }
+
+                break;
+            }
+
+            case 'p': {
+                heap.print();
                 break;
             }
 
@@ -264,6 +317,10 @@ int main() {
 
             case 'l':
                 listMenu();
+                break;
+
+            case 'b':
+                heapMenu();
                 break;
 
             case 'q':

@@ -1,6 +1,3 @@
-//
-// Created by ezzqu on 27.04.2022.
-//
 
 #include <iostream>
 #include "Array.hpp"
@@ -131,7 +128,13 @@ bool Array::contains(int val) {
 void Array::print() const
 {
     for (size_t i = 0; i < arraySize; i++) {
-        std::cout << array[i] << " ";
+        if(i != arraySize-1) {
+            std::cout << array[i] << ", ";
+        }else{
+            std::cout << array[i] << std::endl;
+        }
+
     }
     std::cout << std::endl;
 }
+#pragma clang diagnostic pop

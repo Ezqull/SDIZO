@@ -34,6 +34,7 @@ void List::pushBeg(int val) {
 void List::pushEnd(int val) {
 
     Node *node = new Node();
+
     node->val = val;
     node->prev = last;
 
@@ -48,9 +49,9 @@ void List::pushEnd(int val) {
     size++;
 }
 
-void List::insert(int val, int index) {
+void List::insert(int val, unsigned int index) {
 
-    if (size != 0 && index < size){
+    if (index <= size){
         if (index == 0){
             pushBeg(val);
         }else if (index == size){
@@ -58,20 +59,16 @@ void List::insert(int val, int index) {
         } else{
             Node *node = first;
 
-            for (int i = 0; i < index; i++) {
+            for (int i = 0; i < index - 1; i++) {
                 node = node->next;
             }
-
             Node *tmp = new Node();
             tmp->val = val;
             tmp->prev = node;
             tmp->next = node->next;
-            node->next = node;
-            (node->next)->prev = node;
+            node->next = tmp;
+            (node->next)->prev = tmp;
             size++;
-
-            delete tmp;
-            delete node;
         }
     }
 }
@@ -149,7 +146,7 @@ void List::deleteVal(int val) {
     }
 }
 
-bool List::contains(int val) {
+bool List::contains(int val) const {
     Node *node = first;
     for(int i = 0; i < size; i++){
         std::cout<<node->val << " " << val << " ";
