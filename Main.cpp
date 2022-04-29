@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <ctime>
 #include "Array.hpp"
 #include "List.hpp"
 #include "Heap.hpp"
+#include "Stoper.hpp"
 
 using namespace std;
 
-const string operations = "r - read from file\na - add value\nd - delete value\nc - search if value exists\np - print container contents\nm - go back to menu\n";
+const string operations = "r - read from file\na - add value\nd - delete value\nc - search if value exists\np - print container contents\nt - zmierz czas operacji\nm - go back to menu\n";
+const string timeOptions = "a - adding value\nd - deleting value\ns - searching for value\np - printing structure";
 
 vector<int> readFile() {
 
@@ -149,6 +152,84 @@ void arrayMenu(){
                 break;
             }
 
+            case 't':{
+                Stoper stoper;
+                cout << "Choose operation to check:\n" + timeOptions << endl;
+
+                switch (getUserInputChar()) {
+                    case 'a':{
+                        cout << "How much number to add?\n";
+                        int size = getUserInputNum();
+                        cout << "Choose position:\nb - beginning\ne - end\n";
+                        switch (getUserInputChar()) {
+                            case 'b':{
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    array.pushBeg(rand()%15);
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                            case 'e':{
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    array.pushEnd(rand()%15);
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                        }
+                    }
+                    case 'd':{
+                        cout << "How much number to delete?\n";
+                        int size = getUserInputNum();
+                        cout << "Choose position:\nb - beginning\ne - end\n";
+                        switch (getUserInputChar()) {
+                            case 'b':{
+                                for (int i = 0; i < size; i++){
+                                    array.pushBeg(rand()%15);
+                                }
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    array.popBeg();
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                            case 'e':{
+                                for (int i = 0; i < size; i++){
+                                    array.pushEnd(rand()%15);
+                                }
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    array.popEnd();
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                        }
+                    }
+                    case 's':{
+                        cout << "Choose value to look for:\n";
+                        int val = getUserInputNum();
+                        stoper.startStoper();
+                        array.contains(val);
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                    case 'p':{
+                        stoper.startStoper();
+                        array.print();
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                }
+            }
+
             case 'm': {
                 return;
             }
@@ -246,6 +327,84 @@ void listMenu(){
                 break;
             }
 
+            case 't':{
+                Stoper stoper;
+                cout << "Choose operation to check:\n" + timeOptions << endl;
+
+                switch (getUserInputChar()) {
+                    case 'a':{
+                        cout << "How much number to add?\n";
+                        int size = getUserInputNum();
+                        cout << "Choose position:\nb - beginning\ne - end\n";
+                        switch (getUserInputChar()) {
+                            case 'b':{
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    list.pushBeg(rand()%15);
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                            case 'e':{
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    list.pushEnd(rand()%15);
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                        }
+                    }
+                    case 'd':{
+                        cout << "How much number to delete?\n";
+                        int size = getUserInputNum();
+                        cout << "Choose position:\nb - beginning\ne - end\n";
+                        switch (getUserInputChar()) {
+                            case 'b':{
+                                for (int i = 0; i < size; i++){
+                                    list.pushBeg(rand()%15);
+                                }
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    list.popBeg();
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                            case 'e':{
+                                for (int i = 0; i < size; i++){
+                                    list.pushEnd(rand()%15);
+                                }
+                                stoper.startStoper();
+                                for (int i = 0; i < size; i++){
+                                    list.popEnd();
+                                }
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                break;
+                            }
+                        }
+                    }
+                    case 's':{
+                        cout << "Choose value to look for:\n";
+                        int val = getUserInputNum();
+                        stoper.startStoper();
+                        list.contains(val);
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                    case 'p':{
+                        stoper.startStoper();
+                        list.print();
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                }
+            }
+
             case 'm': {
                 return;
             }
@@ -298,6 +457,54 @@ void heapMenu(){
                 break;
             }
 
+            case 't':{
+                Stoper stoper;
+                cout << "Choose operation to check:\n" + timeOptions << endl;
+
+                switch (getUserInputChar()) {
+                    case 'a':{
+                        cout << "How much number to add?\n";
+                        int size = getUserInputNum();
+                        stoper.startStoper();
+                        for (int i = 0; i < size; i++){
+                            heap.add(rand()%15);
+                        }
+                        stoper.stopStoper();
+                        stoper.showResult();
+                        break;
+                    }
+                    case 'd':{
+                        cout << "How many numbers to delete?\n";
+                        int size = getUserInputNum();
+
+                        for (int i = 0; i < size; i++){
+                            heap.add(rand()%15);
+                        }
+                        stoper.startStoper();
+                        for (int i = 0; i < size; i++){
+                            heap.pop();
+                        }
+                        stoper.stopStoper();
+                        stoper.showResult();
+                        break;
+                    }
+                    case 's':{
+                        cout << "Choose value to look for:\n";
+                        int val = getUserInputNum();
+                        stoper.startStoper();
+                        heap.contains(val);
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                    case 'p':{
+                        stoper.startStoper();
+                        heap.print();
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                }
+            }
+
             case 'm': {
                 return;
             }
@@ -307,6 +514,7 @@ void heapMenu(){
 
 int main() {
     const string structures = "a - Array\nl - List\nb - Binary Heap\nr - Red Black Tree\nq - Quit\n";
+    srand(time(NULL));
 
     while(1){
         cout << "Choose structure: \n" + structures;

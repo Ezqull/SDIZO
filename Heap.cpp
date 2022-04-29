@@ -71,6 +71,22 @@ void Heap::deleteVal(int val) {
     }
 }
 
+void Heap::pop(){
+
+    int *tmp = new int[size - 1];
+
+    std::copy(array, array + size - 1 , tmp);
+
+    delete[] array;
+    array = tmp;
+
+    size--;
+
+    for(int i = 0; i < size; i++){
+        heapify(i);
+    }
+}
+
 void Heap::heapify(int index) {
 
     int left = getLeftChild(index);

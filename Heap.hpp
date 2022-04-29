@@ -13,6 +13,7 @@ public:
     void add(int val);                      // dodanie elementu
 
     void deleteVal(int val);                // usunięcie elementu
+    void pop();
 
     void heapify(int index);               // posortowanie kopca
 

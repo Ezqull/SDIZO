@@ -73,6 +73,12 @@ build CMakeFiles/SDiZO___P.dir/Heap.cpp.obj: CXX_COMPILER__SDiZO___P_Debug C$:/U
   OBJECT_DIR = CMakeFiles\SDiZO___P.dir
   OBJECT_FILE_DIR = CMakeFiles\SDiZO___P.dir
 
+build CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj: CXX_COMPILER__SDiZO___P_Debug C$:/Users/ezzqu/OneDrive/Pulpit/SDiZO$ -$ P/SDIZO/Stoper.cpp || cmake_object_order_depends_target_SDiZO___P
+  DEP_FILE = CMakeFiles\SDiZO___P.dir\Stoper.cpp.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\SDiZO___P.dir
+  OBJECT_FILE_DIR = CMakeFiles\SDiZO___P.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SDiZO___P
@@ -81,7 +87,7 @@ build CMakeFiles/SDiZO___P.dir/Heap.cpp.obj: CXX_COMPILER__SDiZO___P_Debug C$:/U
 #############################################
 # Link the executable SDiZO___P.exe
 
-build SDiZO___P.exe: CXX_EXECUTABLE_LINKER__SDiZO___P_Debug CMakeFiles/SDiZO___P.dir/Main.cpp.obj CMakeFiles/SDiZO___P.dir/Array.cpp.obj CMakeFiles/SDiZO___P.dir/List.cpp.obj CMakeFiles/SDiZO___P.dir/Heap.cpp.obj
+build SDiZO___P.exe: CXX_EXECUTABLE_LINKER__SDiZO___P_Debug CMakeFiles/SDiZO___P.dir/Main.cpp.obj CMakeFiles/SDiZO___P.dir/Array.cpp.obj CMakeFiles/SDiZO___P.dir/List.cpp.obj CMakeFiles/SDiZO___P.dir/Heap.cpp.obj CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\SDiZO___P.dir
