@@ -2,7 +2,7 @@
 // Created by Michal on 02.05.2022.
 //
 
-#include "RedBlackTree.h"
+#include "RedBlackTree.hpp"
 
 using namespace std;
 

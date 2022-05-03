@@ -12,8 +12,10 @@ public:
         int val;
     };
     int size;
+
     RedBlackTree();
     ~RedBlackTree();
+
     void delete_tree();
     void add_node(int);
     void delete_node(int);
