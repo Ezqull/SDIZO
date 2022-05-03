@@ -1,6 +1,6 @@
 #include <iostream>
 
-class RedBlackTree {
+class RedBlackTree{
 
 public:
 
@@ -8,29 +8,35 @@ public:
         Node *parent;
         Node *left;
         Node *right;
+        int value;
         char color;
-        int val;
     };
-    int size;
+    int size = 0;
 
     RedBlackTree();
     ~RedBlackTree();
 
-    void delete_tree();
-    void add_node(int);
-    void delete_node(int);
-    void left_rotation(Node *rotation_node);
-    void right_rotation(Node *rotation_node);
-    void find_node(int);
-    void display_tree();
+    void add(int val); //done
+
+    void deleteVal(int val);
+
+    void print();
+
+    bool contains(int val);
 
 private:
+    Node guard;
     Node *root;
-    Node *guard;
-    void delete_node(Node *node_to_delete);
-    void find_node(int value, Node *node_to_find, Node *&found_node);
-    void find_value(int wartosc, Node *korzenElementuDrzewa, bool &znalezione);
-    Node *find_next(Node *p);
-    Node *find_minimum(Node *p);
 
+    void rotateRight(Node *node);
+    void rotateLeft(Node *node);
+
+    void deleteNode(Node *node);
+
+    Node *succesor(Node *node);
+
+    Node *minNode(Node *node); //finds lowest node
+
+    void clearNode(Node *node);
 };
+

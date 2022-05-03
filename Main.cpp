@@ -6,6 +6,7 @@
 #include "List.hpp"
 #include "Heap.hpp"
 #include "Stoper.hpp"
+#include "RedBlackTree.hpp"
 
 using namespace std;
 
@@ -66,7 +67,7 @@ void arrayMenu(){
     Array array;
     const string options = "\nb - beginning\ne - end\nc - choose\n";
 
-    while (1) {
+    while (true) {
         cout << "Choose operation: \n" + operations;
 
         switch (getUserInputChar()) {
@@ -233,6 +234,9 @@ void arrayMenu(){
             case 'm': {
                 return;
             }
+
+            default:
+                break;
         }
     }
 }
@@ -241,7 +245,7 @@ void listMenu(){
     List list;
     const string options = "\nb - beginning\ne - end\nc - choose\n";
 
-    while (1){
+    while (true){
         cout << "Choose operation: \n" + operations;
 
         switch (getUserInputChar()) {
@@ -328,8 +332,8 @@ void listMenu(){
             }
 
             case 't':{
-                Stoper stoper;
                 cout << "Choose operation to check:\n" + timeOptions << endl;
+                Stoper stoper;
 
                 switch (getUserInputChar()) {
                     case 'a':{
@@ -408,6 +412,9 @@ void listMenu(){
             case 'm': {
                 return;
             }
+
+            default:
+                break;
         }
     }
 }
@@ -415,7 +422,7 @@ void listMenu(){
 void heapMenu(){
     Heap heap;
 
-    while (1){
+    while (true){
         cout << "\nChoose operation: \n" + operations;
 
         switch (getUserInputChar()) {
@@ -503,20 +510,127 @@ void heapMenu(){
                         stoper.showResult();
                     }
                 }
+                break;
             }
 
             case 'm': {
                 return;
             }
+
+            default:
+                break;
+        }
+    }
+}
+
+void RBTreeMenu(){
+    RedBlackTree redBlackTree;
+
+    while (true){
+        cout << "\nChoose operation: \n" + operations;
+
+        switch (getUserInputChar()) {
+            case 'r': {
+                auto vals = readFile();
+                for (auto val: vals) {
+                    redBlackTree.add(val);
+                }
+                break;
+            }
+
+            case 'a': {
+                cout << "Write value to add: \n";
+                redBlackTree.add(getUserInputNum());
+                break;
+            }
+
+            case 'd': {
+                cout << "Write value to delete: \n";
+                redBlackTree.deleteVal(getUserInputNum());
+                break;
+            }
+
+            case 'c': {
+                cout << "Choose value to check: \n";
+
+                if (redBlackTree.contains(getUserInputNum())){
+                    cout << "Heap contains this value." << endl;
+
+                }else {
+                    cout << "Heap doesn't contain this value." << endl;
+                }
+
+                break;
+            }
+
+            case 'p': {
+                redBlackTree.print();
+                break;
+            }
+
+            case 't':{
+                Stoper stoper;
+                cout << "Choose operation to check:\n" + timeOptions << endl;
+
+                switch (getUserInputChar()) {
+                    case 'a':{
+                        cout << "How much number to add?\n";
+                        int size = getUserInputNum();
+                        stoper.startStoper();
+                        for (int i = 0; i < size; i++){
+                            redBlackTree.add(rand()%15);
+                        }
+                        stoper.stopStoper();
+                        stoper.showResult();
+                        break;
+                    }
+                    case 'd':{
+                        cout << "How many numbers to delete?\n";
+                        int size = getUserInputNum();
+
+                        for (int i = 0; i < size; i++){
+                            redBlackTree.add(rand()%15);
+                        }
+//                        stoper.startStoper();
+//                        for (int i = 0; i < size; i++){
+//                            redBlackTree.pop();
+//                        }
+//                        stoper.stopStoper();
+//                        stoper.showResult();
+                        break;
+                    }
+                    case 's':{
+                        cout << "Choose value to look for:\n";
+                        int val = getUserInputNum();
+                        stoper.startStoper();
+                        redBlackTree.contains(val);
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                    case 'p':{
+                        stoper.startStoper();
+                        redBlackTree.print();
+                        stoper.stopStoper();
+                        stoper.showResult();
+                    }
+                }
+            }
+
+            case 'm': {
+                return;
+            }
+
+            default:
+                break;
         }
     }
 }
 
 int main() {
     const string structures = "a - Array\nl - List\nb - Binary Heap\nr - Red Black Tree\nq - Quit\n";
-    srand(time(NULL));
+    srand(time(nullptr));
 
-    while(1){
+    while(true){
         cout << "Choose structure: \n" + structures;
         switch (getUserInputChar()) {
             case 'a':
@@ -531,9 +645,12 @@ int main() {
                 heapMenu();
                 break;
 
+            case 'r':
+                RBTreeMenu();
+                break;
+
             case 'q':
                 return 1;
-                break;
         }
     }
     return 0;

@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Heap.hpp"
 
-Heap::Heap() : size(0), maxSize(1), array(new int[maxSize]){}
+Heap::Heap() : size(0), maxSize(1){}
 
 Heap::~Heap() {
 

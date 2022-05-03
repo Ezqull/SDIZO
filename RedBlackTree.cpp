@@ -1,366 +1,332 @@
-//
-// Created by Michal on 02.05.2022.
-//
-
 #include "RedBlackTree.hpp"
 
-using namespace std;
-
-RedBlackTree::RedBlackTree() {
-
-    size = 0;
-    //inicjalizowanie guarda wskazuje sam na siebie
-    guard->color = 'B';
-    guard->parent = guard;
-    guard->left = guard;
-    guard->right = guard;
-    root = guard;
+RedBlackTree::RedBlackTree() : size(0){
+    // Guard is initialized
+    guard.color = 'b'; //always black
+    guard.parent = &guard; //all guards pointers points himself
+    guard.left = &guard;
+    guard.right = &guard;
+    root = &guard;     // When there is no nodes. Root will point guard
 }
 
-RedBlackTree::~RedBlackTree() {
-    if (root) {
-        delete_tree();
+RedBlackTree::~RedBlackTree(){
+    if (root != &guard){
+        clearNode(root->left);   // usuwamy lewe poddrzewo
+        clearNode(root->right);  // usuwamy prawe poddrzewo
+        delete root;              // usuwamy sam wêze³
+        guard.color = 'b'; //always black
+        guard.parent = &guard; //all guards pointers points himself
+        guard.left = &guard;
+        guard.right = &guard;
+        root = &guard;     // When there is no nodes. Root will point guard
+        size = 0;
     }
 }
 
-void RedBlackTree::delete_tree() {
-    delete_node(root);
+void RedBlackTree::rotateRight(Node * node){
+    Node *son, *parent;
 
-    //Inicjalizacja strażnika
-    guard->color = 'B';
-    guard->parent = guard;
-    guard->right = guard;
-    guard->right = guard;
-    root = guard;
-    size = 0;
+    son = node->left;
+    if (son != &guard){
+        parent = node->parent;
+        node->left = son->right;
+
+        if (node->left != &guard) {
+            node->left->parent = node;
+        }
+
+        son->right= node;
+        son->parent = parent;
+        node->parent =son;
+
+        if (parent != &guard){
+            if (parent->left == node) {
+                parent->left = son;
+            }else {
+                parent->right = son;
+            }
+        }else {
+            root = son;
+        }
+    }
 }
 
-void RedBlackTree::delete_node(Node *node_to_delete) {
+void RedBlackTree::rotateLeft(Node * node){
+    Node *son, *parent;
 
-    //Jeżeli element nie jest strażnikiem, usuń jego dzieci
-    //A nastepnie sam element
-    if (node_to_delete != guard) {
-        delete_node(node_to_delete->left);
-        delete_node(node_to_delete->right);
-        delete node_to_delete;
+    son = node->right;
+    if (son != &guard){
+        parent = node->parent;
+        node->right = son->left;
 
-        //Zmniejsz size drzewa
-        RedBlackTree::size--;
+        if (node->right != &guard) {
+            node->right->parent = node;
+        }
+
+        son->left = node;
+        son->parent = parent;
+        node->parent = son;
+
+        if (parent != &guard){
+            if (parent->left == node) {
+                parent->left = son;
+            }else {
+                parent->right = son;
+            }
+        }else {
+            root = son;
+        }
+    }
+}
+
+void RedBlackTree::add(int val){
+    size++;
+    Node *newNode, *uncle;
+    newNode = new Node();
+    newNode->left = &guard;
+    newNode->right = &guard;
+    newNode->parent = root;
+    newNode->value = val;
+    if (newNode->parent == &guard) {
+        root = newNode;
     } else {
-
-        cout << "Usuwany element jest strażnikiem!!!" << endl;
-
-    }
-}
-
-void RedBlackTree::left_rotation(Node *rotation_node) {
-
-    Node *y, *p;
-
-    y = rotation_node->right;
-    if (y != guard) {
-        p = rotation_node->parent;
-        rotation_node->right = y->right;
-        if (rotation_node->right != guard) rotation_node->right->parent = rotation_node;
-
-        y->left = rotation_node;
-        y->parent = p;
-        rotation_node->parent = y;
-
-        if (p != guard) {
-            if (p->left == rotation_node) p->left = y; else p->right = y;
-        } else root = y;
-    }
-
-}
-
-void RedBlackTree::right_rotation(Node *rotation_node) {
-
-    Node *y, *p;
-
-    y = rotation_node->left;
-    if (y != guard) {
-        p = rotation_node->parent;
-        rotation_node->left = y->right;
-        if (rotation_node->left != guard) rotation_node->left->parent = rotation_node;
-
-        y->right = rotation_node;
-        y->parent = p;
-        rotation_node->parent = y;
-
-        if (p != guard) {
-            if (p->left == rotation_node) p->left = y; else p->right = y;
-        } else root = y;
-    }
-
-}
-
-void RedBlackTree::add_node(int wartosc) {
-
-    Node *X, *Y;
-
-    //Stworzenie nowego węzła dla drzewa
-    X = new Node;
-    X->left = guard;
-    X->left = guard;
-    X->parent = root;
-    X->val = wartosc;
-
-    //Przypisanie korzenia jako X, jeżeli parent jest strażnikiem
-    //W przeciwnym wypadku, zastąpienie liścia
-    if (X->parent == guard) {
-        root = X;
-    } else {
-        //Pętla wyszukuje liść do zastąpienia przez X
-        //Zależnie od sytuacji zastępuje prawy lub lewy liść drzewa
-        while (true) {
-            //X zastępuje lewy liść
-            if (wartosc < X->parent->val) {
-                if (X->parent->left == guard) {
-                    X->parent->left = X;
+        while (1) {
+            if (newNode->value < newNode->parent->value) {
+                if (newNode->parent->left == &guard) {
+                    newNode->parent->left = newNode;
                     break;
                 }
-                X->parent = X->parent->left;
-
-                // X zastępuje prawy liść
-            } else if (wartosc > X->parent->val) {
-                if (X->parent->right == guard) {
-                    X->parent->right = X;
+                newNode->parent = newNode->parent->left;
+            } else {
+                if (newNode->parent->right == &guard) {
+                    newNode->parent->right = newNode;
                     break;
                 }
-                X->parent = X->parent->right;
-
-                //Brak możliwości zastąpienia liścia
-            } else {
-                delete X;
-                return;
+                newNode->parent = newNode->parent->right;
             }
+
         }
-
-        //Kolorowanie węzła na czerwono
-        X->color = 'R';
-        while ((X != root) && (X->parent->color == 'R')) {
-            if (X->parent == X->parent->parent->left) {
-                Y = X->parent->parent->left;
-
-                //Przypadek 1
-                if (Y->color == 'R') {
-                    X->parent->color = 'B';
-                    Y->color = 'B';
-                    X->parent->parent->color = 'R';
-                    X = X->parent->parent;
-                    continue;
-                }
-
-                //Przypadek 2
-                if (X == X->parent->right) {
-                    X = X->parent;
-                    left_rotation(X);
-                }
-
-                //Przypadek 3
-                X->parent->color = 'B';
-                X->parent->parent->color = 'R';
-                right_rotation(X->parent->parent);
-                break;
-
-                //Przypadki lustrzane
-            } else {
-                Y = X->parent->parent->left;
-
-                //Przypadek lustrzany 1
-                if (Y->color == 'R') {
-                    X->parent->color = 'B';
-                    Y->color = 'B';
-                    X->parent->parent->color = 'R';
-                    X = X->parent->parent;
-                    continue;
-                }
-
-                //Przypadek lustrzany 2
-                if (X == X->parent->left) {
-                    X = X->parent;
-                    right_rotation(X);
-                }
-
-                //Przypadek lustrzany 3
-                X->parent->color = 'B';
-                X->parent->parent->color = 'R';
-                left_rotation(X->parent->parent);
-                break;
-            }
-        }
-        root->color = 'B';
-
-        //Zwiększenie rozmiaru drzewa o 1
-        size++;
     }
-}
+    newNode->color = 'r';
+    while ((newNode != root) && (newNode->parent->color == 'r')){
+        if (newNode->parent == newNode->parent->parent->left){
+            uncle = newNode->parent->parent->right;
 
-void RedBlackTree::delete_node(int wartosc) {
+            if (uncle->color == 'r'){ // first situation
 
-    Node *node_to_delete;
-    find_node(wartosc, root, node_to_delete);
-
-    Node *W, *Y, *Z;
-
-    if ((node_to_delete->left == guard) || (node_to_delete->right == guard))
-        Y = node_to_delete;
-    else Y = find_next(node_to_delete);
-
-    if (Y->left != guard) Z = Y->left;
-    else Z = Y->right;
-
-    Z->parent = Y->parent;
-
-    if (Y->parent == guard) root = Z;
-    else if (Y == Y->parent->left) Y->parent->left = Z;
-    else Y->parent->right = Z;
-
-    if (Y != node_to_delete) node_to_delete->val = Y->val;
-
-    if (Y->color == 'B')   // Naprawa struktury drzewa czerwono-czarnego
-        while ((Z != root) && (Z->color == 'B'))
-            if (Z == Z->parent->left) {
-                W = Z->parent->right;
-
-                //Przypadek 1
-                if (W->color == 'R') {
-                    W->color = 'B';
-                    Z->parent->color = 'R';
-                    left_rotation(Z->parent);
-                    W = Z->parent->right;
-                }
-
-                //Przypadek 2
-                if ((W->left->color == 'B') && (W->right->color == 'B')) {
-                    W->color = 'R';
-                    Z = Z->parent;
-                    continue;
-                }
-
-                //Przypadek 3
-                if (W->right->color == 'B') {
-                    W->right->color = 'B';
-                    W->color = 'R';
-                    right_rotation(W);
-                    W = Z->parent->right;
-                }
-
-                //Przypadek 4
-                W->color = Z->parent->color;
-                Z->parent->color = 'B';
-                W->right->color = 'B';
-                left_rotation(Z->parent);
-
-                //Zakończenie pętli
-                Z = root;
-
-                //Przypadki lustrzane
-            } else {
-                W = Z->parent->left;
-
-                //Lustrzany przypadek 1
-                if (W->color == 'R') {
-                    W->color = 'B';
-                    Z->parent->color = 'R';
-                    left_rotation(Z->parent);
-                    W = Z->parent->left;
-                }
-
-                //Lustrzany przypadek 2
-                if ((W->left->color == 'B') && (W->right->color == 'B')) {
-                    W->color = 'R';
-                    Z = Z->parent;
-                    continue;
-                }
-
-                //Lustrzany przypadek 3
-                if (W->left->color == 'B') {
-                    W->right->color = 'B';
-                    W->color = 'R';
-                    left_rotation(W);
-                    W = Z->parent->left;
-                }
-
-                //Lustrzany przypadek 4
-                W->color = Z->parent->color;
-                Z->parent->color = 'B';
-                W->left->color = 'B';
-                right_rotation(Z->parent);
-
-                //Zakończenie pętli
-                Z = root;
+                newNode->parent->color = 'b';
+                uncle->color = 'b';
+                newNode->parent->parent->color = 'r';
+                newNode = newNode->parent->parent;
             }
 
-    Z->color = 'B';
-
-    delete Y;
-}
-
-    void RedBlackTree::find_node(int value, Node *node_to_find, Node *&found_node) {
-    if (node_to_find != guard) {
-        if (node_to_find->val == value) {
-            found_node = node_to_find;
-            return;
+        } else {
+            uncle = newNode->parent->parent->left; // mirror uncle
+            if (uncle->color == 'r'){
+                newNode->parent->color = 'b';
+                uncle->color = 'b';
+                newNode->parent->parent->color = 'r';
+                newNode = newNode->parent->parent;
+            }
         }
-        find_node(value, node_to_find->left, found_node);
-        find_node(value, node_to_find->right, found_node);
     }
+
+    if (newNode->parent == newNode->parent->parent->left){
+        if (newNode == newNode->parent->right){
+            newNode = newNode->parent;
+            rotateLeft(newNode);
+        }
+        newNode->parent->color = 'b';
+        newNode->parent->parent->color = 'r';
+        rotateRight(newNode->parent->parent);
+
+    }else {
+        if (newNode == newNode->parent->left){
+            newNode = newNode->parent;
+            rotateRight(newNode);
+        }
+        newNode->parent->color = 'b';
+        newNode->parent->parent->color = 'r';
+        rotateLeft(newNode->parent->parent);
+
+    }
+
+    root->color = 'b';
 }
 
-void RedBlackTree::find_node(int wartosc) {
-    bool znalezione = false;
-    find_value(wartosc, root, znalezione);
+void RedBlackTree::deleteNode(Node *node) {
 
-    if (znalezione) {
-        cout << "Wartość " << wartosc << " występuje w drzewie" << endl;
+    size--;
+    Node *x, *y, *z;
+
+    if ((node->left == &guard) || (node->right == &guard)) {
+        y = node;
     } else {
-        cout << "Wartość " << wartosc << " nie występuje w drzewie" << endl;
-
-    }
-}
-
-void RedBlackTree::find_value(int wartosc, Node *korzenElementuDrzewa, bool &znalezione) {
-
-    if (korzenElementuDrzewa != guard) {
-        if (korzenElementuDrzewa->val == wartosc) {
-            znalezione = true;
-            return;
-        }
-        find_value(wartosc, korzenElementuDrzewa->left, znalezione);
-        find_value(wartosc, korzenElementuDrzewa->right, znalezione);
+        y = succesor(node);
     }
 
-}
+    if (y->left != &guard) {
+        z = y->left;
+    } else {
+        z = y->right;
+    }
 
-void RedBlackTree::display_tree() {
+    z->parent = y->parent;
 
-}
+    if (y->parent == &guard) {
+        root = z;
+    }
 
-RedBlackTree::Node *RedBlackTree::find_next(Node *p) {
-    Node *nastepnyElementDrzewa;
+    if (y == y->parent->left) {
+        y->parent->left = z;
+    }else {
+        y->parent->right = z;
+    }
 
-    if (p != guard) {
-        if (p->right != guard) return find_minimum(p->right);
-        else {
-            nastepnyElementDrzewa = p->parent;
-            while ((nastepnyElementDrzewa != guard) && (p == nastepnyElementDrzewa->right)) {
-                p = nastepnyElementDrzewa;
-                nastepnyElementDrzewa = nastepnyElementDrzewa->parent;
+    if (y != node) {
+        node->value = y->value;
+    }
+
+    if (y->color == 'b') {
+        while ((z != root) && (z->color == 'b')) {
+            if (z == z->parent->left) {
+                x = z->parent->right;
+
+                if (x->color == 'r') {              // situation 1
+                    x->color = 'b';
+                    z->parent->color = 'r';
+                    rotateLeft(z->parent);
+                    x = z->parent->right;
+                }
+
+                if ((x->left->color == 'b') && (x->right->color == 'b')) {              // situation 2
+                    x->color = 'r';
+                    z = z->parent;
+                    continue;
+                }
+
+                if (x->right->color == 'b') {              // situation 3
+                    x->left->color = 'b';
+                    x->color = 'r';
+                    rotateRight(x);
+                    x = z->parent->right;
+                }
+
+                x->color = z->parent->color; // situation 4
+                z->parent->color = 'b';
+                x->right->color = 'r';
+                rotateLeft(z->parent);
+                z = root;
+
+            } else {                // Mirror
+                x = z->parent->left;
+
+                if (x->color == 'R') {              // situation 1
+                    x->color = 'b';
+                    z->parent->color = 'r';
+                    rotateRight(z->parent);
+                    x = z->parent->left;
+                }
+
+                if ((x->left->color == 'B') && (x->right->color == 'B')) {              // situation 2
+                    x->color = 'r';
+                    z = z->parent;
+                    continue;
+                }
+
+                if (x->left->color == 'B') {              // situation 3
+                    x->right->color = 'b';
+                    x->color = 'r';
+                    rotateLeft(x);
+                    x = z->parent->left;
+                }
+
+                x->color = z->parent->color;  // situation 4
+                z->parent->color = 'b';
+                x->left->color = 'b';
+                rotateRight(z->parent);
+                z = root;
             }
-            return nastepnyElementDrzewa;
         }
     }
-    return guard;
+    z->color = 'b';
+
+    delete y;
 }
 
-RedBlackTree::Node *RedBlackTree::find_minimum(Node *p) {
-    if (p != guard) {
-        while (p->left != guard){
-            p = p->left;
+RedBlackTree::Node *RedBlackTree::succesor(Node * node){
+    Node* tmp;
+    if (node != &guard)
+    {
+        if (node->right != &guard) {
+            return minNode(node->right);
+
+        }else{
+            tmp = node->parent;
+            while ((tmp != &guard) && (node == tmp->right))
+            {
+                node = tmp;
+                tmp = tmp->parent;
+            }
+            return tmp;
         }
     }
-    return p;
+
+    return &guard;
 }
 
+RedBlackTree::Node *RedBlackTree::minNode(Node * node){
+    if (node != &guard) {
+        while (node->left != &guard) {
+            node = node->left;
+        }
+    }
+
+    return node;
+}
+
+bool RedBlackTree::contains(int value){
+    Node *node;
+    node = root;
+    while ((node != &guard) && (node->value != value)) {
+        if (value < node->value) {
+            node = node->left;
+        }else {
+            node = node->right;
+        }
+    }
+    if (node == &guard) {
+        return false;
+    }
+    return true;
+}
+
+void RedBlackTree::clearNode(Node * node){
+
+    if (node != &guard){
+        clearNode(node->left);   // usuwamy lewe poddrzewo
+        clearNode(node->right);  // usuwamy prawe poddrzewo
+        delete node;              // usuwamy sam wêze³
+    }
+}
+
+void RedBlackTree::deleteVal(int val){
+    Node *node = root;
+    if(!contains(val)) {
+        std::cout << "Value not found." << std::endl;
+    }else{
+        while ((node != &guard) && (node->value != val)) {
+            if (val < node->value) {
+                node = node->left;
+            }else {
+                node = node->right;
+            }
+        }
+
+        deleteNode(node);
+    }
+}
+
+void RedBlackTree::print(){
+
+}
