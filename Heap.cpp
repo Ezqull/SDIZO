@@ -109,7 +109,7 @@ void Heap::heapify(int index) {
     }
 }
 
-bool Heap::contains(int val) {
+bool Heap::contains(int val) const {
     for (int i = 0; i < size; i++) {
         if(array[i] == val){
             return true;
@@ -142,14 +142,14 @@ void Heap::print() const {
     }
 }
 
-int Heap::getParent(int index) const {
+int Heap::getParent(int index) {
     return (index - 1) / 2;
 }
 
-int Heap::getLeftChild(int index) const {
+int Heap::getLeftChild(int index) {
     return 2 * index + 1;
 }
 
-int Heap::getRightChild(int index) const {
+int Heap::getRightChild(int index) {
     return 2 * index + 2;
 }

@@ -17,12 +17,12 @@ public:
 
     void heapify(int index);               // posortowanie kopca
 
-    bool contains(int val);                 // sprawdzenie czy kopiec zawiera element
+    bool contains(int val) const;                 // sprawdzenie czy kopiec zawiera element
 
     void print() const;                     // wyświetlenie kopca
 
-    int getParent(int index) const;         // zwraca wartość rodzica
-    int getLeftChild(int index) const;      // zwraca wartość lewego dziecka
-    int getRightChild(int index) const;     // zwraca wartość prawego dziecka
+    static int getParent(int index) ;         // zwraca wartość rodzica
+    static int getLeftChild(int index) ;      // zwraca wartość lewego dziecka
+    static int getRightChild(int index) ;     // zwraca wartość prawego dziecka
 
 };
