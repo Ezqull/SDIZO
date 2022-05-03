@@ -12,21 +12,22 @@ public:
         char color;
     };
     int size = 0;
+    Node *root;
 
     RedBlackTree();
     ~RedBlackTree();
 
-    void add(int val); //done
+    void add(int val);
 
     void deleteVal(int val);
+    void popRoot();
 
-    void print();
+    void print(Node *node);
 
     bool contains(int val);
 
 private:
     Node guard;
-    Node *root;
 
     void rotateRight(Node *node);
     void rotateLeft(Node *node);
@@ -39,4 +40,3 @@ private:
 
     void clearNode(Node *node);
 };
-

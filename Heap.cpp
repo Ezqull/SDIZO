@@ -3,42 +3,29 @@
 #include <iostream>
 #include "Heap.hpp"
 
-Heap::Heap() : size(0), maxSize(1){}
+Heap::Heap() : size(0){}
 
 Heap::~Heap() {
 
     delete[] array;
 }
 
-void Heap::extendHeap() {
-    maxSize *= 2;
-    int *tmp = new int[maxSize];
-
-    std::copy(array, array + maxSize/2, tmp);
-
-    std::copy(tmp, tmp + maxSize, array);
-
-    delete[] tmp;
-}
-
 void Heap::add(int val) {
-    if(size == maxSize){
-        extendHeap();
-    }
 
     size++;
 
-    int i = size -1;
-    array[i] = val;
-    int parent = getParent(i);
+    int index = size - 1;
 
-    while (i > 0 && array[parent] < array[i]){
+    array[index] = val;
+    int parent = getParent(index);
+
+    while (index >= 0 && array[parent] < array[index]){
 
         int tmp = array[parent];
-        array[parent] = array[i];
-        array[i] = tmp;
-        i = parent;
-        parent = getParent(i);
+        array[parent] = array[index];
+        array[index] = tmp;
+        index = parent;
+        parent = getParent(index);
     }
 
 }
@@ -58,15 +45,15 @@ void Heap::deleteVal(int val) {
         int *tmp = new int[size - 1];
 
         std::copy(array, array + i, tmp);
-        std::copy(array + i + 1, array + size, tmp);
+        std::copy(array + i + 1, array + size, tmp + i);
 
         delete[] array;
         array = tmp;
 
         size--;
 
-        for(int i = 0; i < size; i++){
-            heapify(i);
+        for(int j = 0; j < size; j++){
+            heapify(j);
         }
     }
 }
@@ -101,11 +88,13 @@ void Heap::heapify(int index) {
         largest = right;
     }
 
-    if (largest != index){
-        int tmp = array[index];
-        array[index] = array[largest];
-        array[largest] = tmp;
-        heapify(index);
+    while (index >= 0 && array[largest] < array[index]){
+
+        int tmp = array[largest];
+        array[largest] = array[index];
+        array[index] = tmp;
+        index = largest;
+        largest = getParent(index);
     }
 }
 

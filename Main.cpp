@@ -163,49 +163,50 @@ void arrayMenu(){
                         int size = getUserInputNum();
                         cout << "Choose position:\nb - beginning\ne - end\n";
                         switch (getUserInputChar()) {
-                            case 'b':{
+                            case 'b': {
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++){
-                                    array.pushBeg(rand()%15);
+                                for (int i = 0; i < size; i++) {
+                                    array.pushBeg(rand() % 15);
                                 }
                                 stoper.stopStoper();
                                 stoper.showResult();
                                 break;
                             }
-                            case 'e':{
+                            case 'e': {
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++){
-                                    array.pushEnd(rand()%15);
+                                for (int i = 0; i < size; i++) {
+                                    array.pushEnd(rand() % 15);
                                 }
                                 stoper.stopStoper();
                                 stoper.showResult();
                                 break;
                             }
                         }
+                        break;
                     }
                     case 'd':{
                         cout << "How much number to delete?\n";
                         int size = getUserInputNum();
                         cout << "Choose position:\nb - beginning\ne - end\n";
                         switch (getUserInputChar()) {
-                            case 'b':{
-                                for (int i = 0; i < size; i++){
-                                    array.pushBeg(rand()%15);
+                            case 'b': {
+                                for (int i = 0; i < size; i++) {
+                                    array.pushBeg(rand() % 15);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++){
+                                for (int i = 0; i < size; i++) {
                                     array.popBeg();
                                 }
                                 stoper.stopStoper();
                                 stoper.showResult();
                                 break;
                             }
-                            case 'e':{
-                                for (int i = 0; i < size; i++){
-                                    array.pushEnd(rand()%15);
+                            case 'e': {
+                                for (int i = 0; i < size; i++) {
+                                    array.pushEnd(rand() % 15);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++){
+                                for (int i = 0; i < size; i++) {
                                     array.popEnd();
                                 }
                                 stoper.stopStoper();
@@ -213,6 +214,7 @@ void arrayMenu(){
                                 break;
                             }
                         }
+                        break;
                     }
                     case 's':{
                         cout << "Choose value to look for:\n";
@@ -221,12 +223,14 @@ void arrayMenu(){
                         array.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
+                        break;
                     }
                     case 'p':{
                         stoper.startStoper();
                         array.print();
                         stoper.stopStoper();
                         stoper.showResult();
+                        break;
                     }
                 }
             }
@@ -360,30 +364,31 @@ void listMenu(){
                                 break;
                             }
                         }
+                        break;
                     }
                     case 'd':{
                         cout << "How much number to delete?\n";
                         int size = getUserInputNum();
                         cout << "Choose position:\nb - beginning\ne - end\n";
                         switch (getUserInputChar()) {
-                            case 'b':{
-                                for (int i = 0; i < size; i++){
-                                    list.pushBeg(rand()%15);
+                            case 'b': {
+                                for (int i = 0; i < size; i++) {
+                                    list.pushBeg(rand() % 15);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++){
+                                for (int i = 0; i < size; i++) {
                                     list.popBeg();
                                 }
                                 stoper.stopStoper();
                                 stoper.showResult();
                                 break;
                             }
-                            case 'e':{
-                                for (int i = 0; i < size; i++){
-                                    list.pushEnd(rand()%15);
+                            case 'e': {
+                                for (int i = 0; i < size; i++) {
+                                    list.pushEnd(rand() % 15);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++){
+                                for (int i = 0; i < size; i++) {
                                     list.popEnd();
                                 }
                                 stoper.stopStoper();
@@ -391,6 +396,7 @@ void listMenu(){
                                 break;
                             }
                         }
+                        break;
                     }
                     case 's':{
                         cout << "Choose value to look for:\n";
@@ -406,6 +412,7 @@ void listMenu(){
                         stoper.stopStoper();
                         stoper.showResult();
                     }
+                        break;
                 }
             }
 
@@ -480,15 +487,15 @@ void heapMenu(){
                         stoper.showResult();
                         break;
                     }
-                    case 'd':{
+                    case 'd': {
                         cout << "How many numbers to delete?\n";
                         int size = getUserInputNum();
 
-                        for (int i = 0; i < size; i++){
-                            heap.add(rand()%15);
+                        for (int i = 0; i < size; i++) {
+                            heap.add(rand() % 15);
                         }
                         stoper.startStoper();
-                        for (int i = 0; i < size; i++){
+                        for (int i = 0; i < size; i++) {
                             heap.pop();
                         }
                         stoper.stopStoper();
@@ -502,12 +509,14 @@ void heapMenu(){
                         heap.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
+                        break;
                     }
-                    case 'p':{
+                    case 'p': {
                         stoper.startStoper();
                         heap.print();
                         stoper.stopStoper();
                         stoper.showResult();
+                        break;
                     }
                 }
                 break;
@@ -564,7 +573,7 @@ void RBTreeMenu(){
             }
 
             case 'p': {
-                redBlackTree.print();
+                redBlackTree.print(redBlackTree.root);
                 break;
             }
 
@@ -591,12 +600,12 @@ void RBTreeMenu(){
                         for (int i = 0; i < size; i++){
                             redBlackTree.add(rand()%15);
                         }
-//                        stoper.startStoper();
-//                        for (int i = 0; i < size; i++){
-//                            redBlackTree.pop();
-//                        }
-//                        stoper.stopStoper();
-//                        stoper.showResult();
+                        stoper.startStoper();
+                        for (int i = 0; i < size; i++){
+                            redBlackTree.popRoot();
+                        }
+                        stoper.stopStoper();
+                        stoper.showResult();
                         break;
                     }
                     case 's':{
@@ -606,12 +615,14 @@ void RBTreeMenu(){
                         redBlackTree.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
+                        break;
                     }
                     case 'p':{
                         stoper.startStoper();
-                        redBlackTree.print();
+                        redBlackTree.print(redBlackTree.root);
                         stoper.stopStoper();
                         stoper.showResult();
+                        break;
                     }
                 }
             }
