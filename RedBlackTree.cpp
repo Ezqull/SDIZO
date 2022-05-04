@@ -331,6 +331,10 @@ void RedBlackTree::clearNode(Node * node){
     }
 }
 
+RedBlackTree::Node* RedBlackTree::getRoot() {
+    return root;
+}
+
 void RedBlackTree::print(Node *node){
 
     if(node != &guard){

@@ -1,49 +1,16 @@
 #include <iostream>
-#include <vector>
-#include <fstream>
 #include <ctime>
 #include "Array.hpp"
 #include "List.hpp"
 #include "Heap.hpp"
 #include "Stoper.hpp"
 #include "RedBlackTree.hpp"
+#include "FileOperator.hpp"
 
 using namespace std;
 
 const string operations = "r - read from file\na - add value\nd - delete value\nc - search if value exists\np - print container contents\nt - zmierz czas operacji\nm - go back to menu\n";
 const string timeOptions = "a - adding value\nd - deleting value\ns - searching for value\np - printing structure";
-
-vector<int> readFile() {
-
-    string filename;
-
-    cout << "Enter file name: \n";
-    cin >> filename;
-
-    fstream file;
-    file.open(filename, ios::out);
-
-    cout << file.is_open();
-
-    if (!file.is_open()) {
-        cout << "File not found";
-        exit(-1);
-    }
-
-    vector<int> vals;
-    size_t size;
-    file >> size;
-
-    while (size > 0) {
-        int val;
-        file >> val;
-        vals.push_back(val);
-        size--;
-        cout << size << " ";
-    }
-
-    return vals;
-}
 
 char getUserInputChar(){
     char input;
@@ -72,9 +39,10 @@ void arrayMenu(){
 
         switch (getUserInputChar()) {
             case 'r': {
-                auto vals = readFile();
-                for (auto val: vals) {
-                    array.pushBeg(val);
+                FileOperator fileOperator;
+                fileOperator.readFile();
+                for(int i = 0; i < fileOperator.getSize(); i ++){
+                    array.pushBeg(fileOperator.data[i]);
                 }
                 break;
             }
@@ -254,9 +222,10 @@ void listMenu(){
 
         switch (getUserInputChar()) {
             case 'r': {
-                auto vals = readFile();
-                for (auto val: vals) {
-                    list.pushBeg(val);
+                FileOperator fileOperator;
+                fileOperator.readFile();
+                for(int i = 0; i < fileOperator.getSize(); i ++){
+                    list.pushBeg(fileOperator.data[i]);
                 }
                 break;
             }
@@ -434,9 +403,12 @@ void heapMenu(){
 
         switch (getUserInputChar()) {
             case 'r': {
-                auto vals = readFile();
-                for (auto val: vals) {
-                    heap.add(val);
+                FileOperator fileOperator;
+                fileOperator.readFile();
+                for(int i = 0; i < fileOperator.getSize(); i ++){
+                    if(!heap.contains(fileOperator.data[i])){
+                        heap.add(fileOperator.data[i]);
+                    }
                 }
                 break;
             }
@@ -534,15 +506,17 @@ void heapMenu(){
 
 void RBTreeMenu(){
     RedBlackTree redBlackTree;
+    FileOperator fileOperator;
 
     while (true){
         cout << "\nChoose operation: \n" + operations;
 
         switch (getUserInputChar()) {
             case 'r': {
-                auto vals = readFile();
-                for (auto val: vals) {
-                    redBlackTree.add(val);
+                for(int i = 0; i < fileOperator.getSize(); i ++){
+                    if(!redBlackTree.contains(fileOperator.data[i])){
+                        redBlackTree.add(fileOperator.data[i]);
+                    }
                 }
                 break;
             }
@@ -573,7 +547,7 @@ void RBTreeMenu(){
             }
 
             case 'p': {
-                redBlackTree.print(redBlackTree.root);
+                redBlackTree.print(redBlackTree.getRoot());
                 break;
             }
 
@@ -593,6 +567,7 @@ void RBTreeMenu(){
                         stoper.showResult();
                         break;
                     }
+
                     case 'd':{
                         cout << "How many numbers to delete?\n";
                         int size = getUserInputNum();
@@ -608,6 +583,7 @@ void RBTreeMenu(){
                         stoper.showResult();
                         break;
                     }
+
                     case 's':{
                         cout << "Choose value to look for:\n";
                         int val = getUserInputNum();
@@ -617,9 +593,10 @@ void RBTreeMenu(){
                         stoper.showResult();
                         break;
                     }
+
                     case 'p':{
                         stoper.startStoper();
-                        redBlackTree.print(redBlackTree.root);
+                        redBlackTree.print(redBlackTree.getRoot());
                         stoper.stopStoper();
                         stoper.showResult();
                         break;
@@ -638,7 +615,7 @@ void RBTreeMenu(){
 }
 
 int main() {
-    const string structures = "a - Array\nl - List\nb - Binary Heap\nr - Red Black Tree\nq - Quit\n";
+    const string structures = "a - Array\nl - List\nb - Binary Heap\nr - Red Black Tree\ng - generate numbers to file\nq - Quit\n";
     srand(time(nullptr));
 
     while(true){
@@ -659,6 +636,12 @@ int main() {
             case 'r':
                 RBTreeMenu();
                 break;
+
+            case 'g': {
+                FileOperator fileOperator;
+                fileOperator.generateNumbersToFile();
+                break;
+            }
 
             case 'q':
                 return 1;

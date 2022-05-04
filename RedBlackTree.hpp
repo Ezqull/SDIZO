@@ -12,7 +12,6 @@ public:
         char color;
     };
     int size = 0;
-    Node *root;
 
     RedBlackTree();
     ~RedBlackTree();
@@ -26,8 +25,11 @@ public:
 
     bool contains(int val);
 
+    Node* getRoot();
+
 private:
     Node guard;
+    Node *root;
 
     void rotateRight(Node *node);
     void rotateLeft(Node *node);
