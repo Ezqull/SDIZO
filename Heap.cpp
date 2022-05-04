@@ -1,4 +1,3 @@
-
 #include <deque>
 #include <iostream>
 #include "Heap.hpp"

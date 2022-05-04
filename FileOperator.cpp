@@ -26,6 +26,8 @@ FileOperator ::FileOperator() {
     }
 }
 
+FileOperator:: ~FileOperator() {}
+
 void FileOperator::generateNumbersToFile() {
 
     int range;
@@ -40,7 +42,7 @@ void FileOperator::generateNumbersToFile() {
     fileName = "random-numbers.txt";
 
 
-    file.open("losowe_liczby.txt", ios::out);
+    file.open("random-numbers.txt", ios::out);
     if (file.is_open()) {
         file << amount << endl;
         for (int i = 1; i < amount; i++) {
@@ -81,9 +83,6 @@ void FileOperator::readFile() {
     }
     file.close();
 }
-
-FileOperator:: ~FileOperator() {}
-
 
 int FileOperator::getSize() {
     return size;
