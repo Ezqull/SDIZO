@@ -406,8 +406,11 @@ void heapMenu(){
                 FileOperator fileOperator;
                 fileOperator.readFile();
                 for(int i = 0; i < fileOperator.getSize(); i ++){
+                    cout << fileOperator.data[i];
                     if(!heap.contains(fileOperator.data[i])){
                         heap.add(fileOperator.data[i]);
+                    }else {
+                        continue;
                     }
                 }
                 break;
