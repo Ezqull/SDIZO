@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\SDiZO___P.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\SDiZO___P.dir/objects.a @CMakeFiles\SDiZO___P.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\SDiZO___P.dir/objects.a -Wl,--no-whole-archive -o SDiZO___P.exe -Wl,--out-implib,libSDiZO___P.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SDiZO___P.dir\linklibs.rsp

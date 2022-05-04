@@ -506,13 +506,15 @@ void heapMenu(){
 
 void RBTreeMenu(){
     RedBlackTree redBlackTree;
-    FileOperator fileOperator;
+
 
     while (true){
         cout << "\nChoose operation: \n" + operations;
 
         switch (getUserInputChar()) {
             case 'r': {
+                FileOperator fileOperator;
+                fileOperator.readFile();
                 for(int i = 0; i < fileOperator.getSize(); i ++){
                     if(!redBlackTree.contains(fileOperator.data[i])){
                         redBlackTree.add(fileOperator.data[i]);

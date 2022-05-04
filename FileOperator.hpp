@@ -19,3 +19,4 @@ public:
     void generateNumbersToFile();
     int getSize();
 };
+

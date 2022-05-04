@@ -1,32 +1,12 @@
+#include "FileOperator.hpp"
 #include <string>
 #include <iostream>
-#include "FileOperator.hpp"
-
 
 using namespace std;
 
-FileOperator ::FileOperator() {
-    int choice;
-    cout << "1->Get data from file\n";
-    cout << "2->Create file\n->";
-    cin >> choice;
+FileOperator ::FileOperator() : size(0), data(nullptr) {}
 
-    switch (choice) {
-        case 1:{
-            cout << endl << "Enter file name: ";
-            cin >> fileName;
-            break;
-        }
-        case 2:{
-            generateNumbersToFile();
-        }
-        default:
-            break;
-
-    }
-}
-
-FileOperator:: ~FileOperator() {}
+FileOperator:: ~FileOperator() = default;
 
 void FileOperator::generateNumbersToFile() {
 
@@ -39,13 +19,10 @@ void FileOperator::generateNumbersToFile() {
     cout << "Enter range of numbers to generate: " << endl;
     cin >> range;
 
-    fileName = "random-numbers.txt";
-
-
     file.open("random-numbers.txt", ios::out);
     if (file.is_open()) {
         file << amount << endl;
-        for (int i = 1; i < amount; i++) {
+        for (int i = 0; i < amount; i++) {
             file << (rand() % range + 1) << endl;
         }
     }

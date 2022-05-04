@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SDiZO___P"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SDiZO___P">
+				<Option output="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/SDiZO___P.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 SDiZO___P"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SDiZO___P/fast">
+				<Option output="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/SDiZO___P.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 SDiZO___P/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Array.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Array.hpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/FileOperator.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/FileOperator.hpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Heap.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Heap.hpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/List.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/List.hpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Main.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/RedBlackTree.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/RedBlackTree.hpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Stoper.cpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/Stoper.hpp">
+			<Option target="SDiZO___P"/>
+		</Unit>
+		<Unit filename="C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
