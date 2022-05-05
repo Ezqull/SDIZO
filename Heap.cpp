@@ -2,30 +2,29 @@
 #include <iostream>
 #include "Heap.hpp"
 
-Heap::Heap() : size(0), maxSize(1){}
+Heap::Heap() : size(0), max(1){}
 
 Heap::~Heap() {
 
     delete[] array;
 }
 
-void Heap::extendHeap(){
+void Heap::expandSize(){
 
-    maxSize = maxSize * 2;
-    int *temp = new int[maxSize];
-    for (int i = 0; i <= maxSize / 2; i++)
+    max = max * 2;
+    int *tmp = new int[max];
+    for (int i = 0; i <= max / 2; i++)
     {
 
-        temp[i]= array[i];
+        tmp[i]= array[i];
     }
-    array = temp;
+    array = tmp;
 }
 
 void Heap::add(int val) {
 
-    if (size == maxSize)
-    {
-        extendHeap();
+    if (size == max){
+        expandSize();
     }
 
     size++;
@@ -41,7 +40,6 @@ void Heap::add(int val) {
         array[index] = tmp;
         index = parent;
         parent = getParent(index);
-        std::cout << "es";
     }
 
 }
@@ -84,10 +82,6 @@ void Heap::pop(){
     array = tmp;
 
     size--;
-
-    for(int i = 0; i < size; i++){
-        heapify(i);
-    }
 }
 
 void Heap::heapify(int index) const {
@@ -136,7 +130,7 @@ void Heap::print() const {
 
         for (int i = 0; i < size; i++) {
 
-            for(int j = 0; j < maxSize/levelElements; j++){
+            for(int j = 0; j < max / levelElements; j++){
                 std::cout << "  ";
             }
             std::cout << array[i];

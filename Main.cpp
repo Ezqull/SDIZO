@@ -9,8 +9,8 @@
 
 using namespace std;
 
-const string operations = "r - read from file\na - add value\nd - delete value\nc - search if value exists\np - print container contents\nt - zmierz czas operacji\nm - go back to menu\n";
-const string timeOptions = "a - adding value\nd - deleting value\ns - searching for value\np - printing structure";
+const string operations = "r - read from file\na - add value\nd - delete value\ns - search if value exists\np - print container contents\nt - zmierz czas operacji\nm - go back to menu\n";
+const string timeOptions = "a - adding value\nd - deleting value\ns - searching for value\n";
 
 char getUserInputChar(){
     char input;
@@ -102,7 +102,7 @@ void arrayMenu(){
                 break;
             }
 
-            case 'c':
+            case 's':
                 cout << "Choose value to check: \n";
 
                 if (array.contains(getUserInputNum())){
@@ -201,6 +201,7 @@ void arrayMenu(){
                         break;
                     }
                 }
+                break;
             }
 
             case 'm': {
@@ -257,7 +258,6 @@ void listMenu(){
                         break;
                     }
                 }
-
                 break;
             }
 
@@ -281,21 +281,21 @@ void listMenu(){
                         break;
                     }
                 }
-
                 break;
             }
 
-            case 'c':
+            case 's': {
                 cout << "Choose value to check: \n";
 
-                if (list.contains(getUserInputNum())){
+                if (list.contains(getUserInputNum())) {
                     cout << "List contains this value." << endl;
 
-                }else {
+                } else {
                     cout << "List doesn't contain this value." << endl;
                 }
 
                 break;
+            }
 
             case 'p': {
 
@@ -374,15 +374,11 @@ void listMenu(){
                         list.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
-                    }
-                    case 'p':{
-                        stoper.startStoper();
-                        list.print();
-                        stoper.stopStoper();
-                        stoper.showResult();
-                    }
                         break;
+                    }
+                    break;
                 }
+                break;
             }
 
             case 'm': {
@@ -406,7 +402,6 @@ void heapMenu(){
                 FileOperator fileOperator;
                 fileOperator.readFile();
                 for(int i = 0; i < fileOperator.getSize(); i ++){
-                    cout << fileOperator.data[i];
                     if(!heap.contains(fileOperator.data[i])){
                         heap.add(fileOperator.data[i]);
                     }else {
@@ -428,7 +423,7 @@ void heapMenu(){
                 break;
             }
 
-            case 'c': {
+            case 's': {
                 cout << "Choose value to check: \n";
 
                 if (heap.contains(getUserInputNum())){
@@ -486,13 +481,6 @@ void heapMenu(){
                         stoper.showResult();
                         break;
                     }
-                    case 'p': {
-                        stoper.startStoper();
-                        heap.print();
-                        stoper.stopStoper();
-                        stoper.showResult();
-                        break;
-                    }
                 }
                 break;
             }
@@ -538,7 +526,7 @@ void RBTreeMenu(){
                 break;
             }
 
-            case 'c': {
+            case 's': {
                 cout << "Choose value to check: \n";
 
                 if (redBlackTree.contains(getUserInputNum())){
@@ -598,15 +586,8 @@ void RBTreeMenu(){
                         stoper.showResult();
                         break;
                     }
-
-                    case 'p':{
-                        stoper.startStoper();
-                        redBlackTree.print(redBlackTree.getRoot());
-                        stoper.stopStoper();
-                        stoper.showResult();
-                        break;
-                    }
                 }
+                break;
             }
 
             case 'm': {

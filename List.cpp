@@ -103,7 +103,6 @@ void List::popEnd() {
     }
 
     if (!last->prev) {
-        // Tail is the last node in the list
         delete last;
 
         last = nullptr;
@@ -149,9 +148,7 @@ void List::deleteVal(int val) {
 bool List::contains(int val) const {
     Node *node = first;
     for(int i = 0; i < size; i++){
-        std::cout<<node->val << " " << val << " ";
         if(val == node->val) {
-            std::cout << 1;
             return true;
         }
         node = node->next;

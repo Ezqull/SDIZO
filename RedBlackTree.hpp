@@ -13,32 +13,31 @@ public:
     };
     int size = 0;
 
-    RedBlackTree();
-    ~RedBlackTree();
+    RedBlackTree();                     // konstruktor
+    ~RedBlackTree();                    // destruktor
 
-    void add(int val);
+    void add(int val);                  // dodanie elementu
 
-    void deleteVal(int val);
-    void popRoot();
+    void deleteVal(int val);            // usuwa podany element
+    void popRoot();                     // usuwa ostatni element
 
-    void print(Node *node);
+    void print(Node *node);             // wyświetla drzewo
 
-    bool contains(int val);
+    bool contains(int val);             // sprawdza czy element występuje w drzewie
 
-    Node* getRoot();
+    Node* getRoot();                    // Zwraca Korzeń
 
 private:
-    Node guard;
-    Node *root;
+    Node guard;                         // Strażnik
+    Node *root;                         // Korzeń
 
-    void rotateRight(Node *node);
-    void rotateLeft(Node *node);
+    void rotateRight(Node *node);       // prawa rotacja
+    void rotateLeft(Node *node);        // lewa rotacja
 
-    void deleteNode(Node *node);
+    void deleteNode(Node *node);        // usunięcie Node'a
+    void clearNode(Node *node);         // wyczyszczenie Node'a
 
-    Node *succesor(Node *node);
+    Node *succesor(Node *node);         // znalezienie następnika
 
-    Node *minNode(Node *node); //finds lowest node
-
-    void clearNode(Node *node);
+    Node *minNode(Node *node);          // znalezienie najmniejszego elementu w drzewie
 };

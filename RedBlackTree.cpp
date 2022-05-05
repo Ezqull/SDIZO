@@ -91,7 +91,7 @@ void RedBlackTree::add(int val){
     if (newNode->parent == &guard) {
         root = newNode;
     } else {
-        while (1) {
+        while (true) {
             if (newNode->value < newNode->parent->value) {
                 if (newNode->parent->left == &guard) {
                     newNode->parent->left = newNode;
@@ -238,20 +238,20 @@ void RedBlackTree::deleteNode(Node *node) {
             } else {
                 x = z->parent->left;
 
-                if (x->color == 'R') {
+                if (x->color == 'r') {
                     x->color = 'b';
                     z->parent->color = 'r';
                     rotateRight(z->parent);
                     x = z->parent->left;
                 }
 
-                if ((x->left->color == 'B') && (x->right->color == 'B')) {
+                if ((x->left->color == 'b') && (x->right->color == 'b')) {
                     x->color = 'r';
                     z = z->parent;
                     continue;
                 }
 
-                if (x->left->color == 'B') {
+                if (x->left->color == 'b') {
                     x->right->color = 'b';
                     x->color = 'r';
                     rotateLeft(x);
@@ -277,15 +277,13 @@ void RedBlackTree::popRoot() {
 
 RedBlackTree::Node *RedBlackTree::succesor(Node * node){
     Node* tmp;
-    if (node != &guard)
-    {
+    if (node != &guard) {
         if (node->right != &guard) {
             return minNode(node->right);
 
-        }else{
+        } else {
             tmp = node->parent;
-            while ((tmp != &guard) && (tmp->left != node))
-            {
+            while ((tmp != &guard) && (tmp->left != node)) {
                 node = tmp;
                 tmp = tmp->parent;
             }
@@ -316,6 +314,7 @@ bool RedBlackTree::contains(int value){
             node = node->right;
         }
     }
+
     if (node == &guard) {
         return false;
     }
@@ -324,7 +323,7 @@ bool RedBlackTree::contains(int value){
 
 void RedBlackTree::clearNode(Node * node){
 
-    if (node != &guard){
+    if (node != &guard) {
         clearNode(node->left);
         clearNode(node->right);
         delete node;
@@ -335,13 +334,13 @@ RedBlackTree::Node* RedBlackTree::getRoot() {
     return root;
 }
 
-void RedBlackTree::print(Node *node){
+void RedBlackTree::print(Node *node) {
 
-    if(node != &guard){
+    if (node != &guard) {
         print(node->left);
-        if(node != root) {
+        if (node != root) {
             std::cout << "value: " << node->value << " color: " << node->color << " parent: " << node->parent->value;
-        }else {
+        } else {
             std::cout << "value: " << node->value << " color: " << node->color << " ROOT";
         }
         print(node->right);

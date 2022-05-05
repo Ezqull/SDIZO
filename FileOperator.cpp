@@ -37,7 +37,7 @@ void FileOperator::readFile() {
 
     string line;
     int lineNr = 1;
-    cout << endl << "Enter file name: ";
+    cout << endl << "Enter file name: \n";
     string input;
     cin >> input;
 

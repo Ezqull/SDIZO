@@ -7,9 +7,9 @@ using namespace std;
 
 long long int Stoper::readQPC() {
     LARGE_INTEGER count;
-    DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
+    DWORD_PTR oldMask = SetThreadAffinityMask(GetCurrentThread(), 0);
     QueryPerformanceCounter(&count);
-    SetThreadAffinityMask(GetCurrentThread(), oldmask);
+    SetThreadAffinityMask(GetCurrentThread(), oldMask);
     return((long long int)count.QuadPart);
 }
 
@@ -24,8 +24,8 @@ long long int Stoper::stopStoper() {
     return elapsed;
 }
 
-void Stoper::showResult() {
-    cout << "\nCzas [s] = " << fixed << setprecision(3) << (float)elapsed / frequency << endl;
-    cout << "Czas [ms] = " << setprecision(0) << (1000.0 * elapsed) / frequency << endl;
-    cout << "Czas [us] = " << setprecision(0) << (1000000.0 * elapsed) / frequency << "\n\n";
+void Stoper::showResult() const {
+    cout << "\nTime [s] = " << fixed << setprecision(3) << (float)elapsed / frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) / frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) / frequency << "\n\n";
 }
