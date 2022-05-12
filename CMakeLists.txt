@@ -3,4 +3,4 @@ project(SDiZO___P)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(SDiZO___P Main.cpp Array.hpp Array.cpp List.cpp List.hpp Heap.cpp Heap.hpp Stoper.cpp RedBlackTree.cpp RedBlackTree.hpp FileOperator.cpp FileOperator.hpp)
+add_executable(SDiZO___P Main.cpp Array.hpp Array.cpp List.cpp List.hpp Heap.cpp Heap.hpp RedBlackTree.cpp RedBlackTree.hpp FileOperator.cpp FileOperator.hpp)

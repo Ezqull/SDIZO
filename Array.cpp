@@ -16,6 +16,7 @@ Array::~Array() {
 void Array::insert(int val, int index){
     if (index >= arraySize) {
         std::cout << "Inserting nodePointer outside of array!";
+        return;
     }
 
     int newSize = arraySize + 1;
@@ -92,6 +93,10 @@ void Array::popEnd() {
 }
 
 void Array::deleteIndex(int index) {
+
+    if(index >= arraySize){
+        return;
+    }
 
     if(arraySize == 0){
         return;

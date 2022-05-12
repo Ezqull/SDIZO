@@ -7,6 +7,7 @@ public:
         Node *prev = nullptr;
         Node *next = nullptr;
     };
+    unsigned int size;                      // rozmiar listy
 
     List();                                 // kontruktor
     ~List();                                // destruktor
@@ -26,5 +27,4 @@ public:
 private:
     Node *first = nullptr;                  // pierwszy element
     Node *last = nullptr;                   // ostatni element
-    unsigned int size;                      // rozmiar listy
 };

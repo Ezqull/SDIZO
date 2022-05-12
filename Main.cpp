@@ -1,9 +1,8 @@
 #include <iostream>
-#include <ctime>
+#include <chrono>
 #include "Array.hpp"
 #include "List.hpp"
 #include "Heap.hpp"
-#include "Stoper.hpp"
 #include "RedBlackTree.hpp"
 #include "FileOperator.hpp"
 
@@ -17,7 +16,7 @@ void arrayMenu(){
     const string options = "\nb - Beginning\ne - End\nc - Choose\n";
 
     while (true) {
-        cout << "Choose operation: \n" + operations;
+        cout << endl << "Choose operation: \n" + operations;
 
         char input;
         cin >> input;
@@ -139,7 +138,6 @@ void arrayMenu(){
             }
 
             case 't':{
-                Stoper stoper;
                 cout << "Choose operation to check:\n" + timeOptions << endl;
 
                 char input1;
@@ -155,7 +153,7 @@ void arrayMenu(){
 
                         cin.clear();
 
-                        cout << "Choose position:\nb - Beginning\ne - End\n";
+                        cout << "Choose position:\nb - Beginning\ne - End\nc - Choose";
                         char input2;
                         cin >> input2;
 
@@ -166,10 +164,10 @@ void arrayMenu(){
                                 for (int i = 0; i < size; i++) {
                                     array.pushBeg(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 array.pushBeg(rand() % size);
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size + 1; i++) {
                                     array.popBeg();
                                 }
@@ -179,10 +177,25 @@ void arrayMenu(){
                                 for (int i = 0; i < size; i++) {
                                     array.pushEnd(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 array.pushEnd(rand() % size);
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
+                                for (int i = 0; i < size + 1; i++) {
+                                    array.popEnd();
+                                }
+                                break;
+                            }
+                            case 'c': {
+                                int val = rand() % size;
+                                int index = rand() % size;
+                                for (int i = 0; i < size; i++) {
+                                    array.pushEnd(rand() % size);
+                                }
+                                auto start = chrono::high_resolution_clock::now();
+                                array.insert(val, index);
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size + 1; i++) {
                                     array.popEnd();
                                 }
@@ -205,10 +218,10 @@ void arrayMenu(){
                                 for (int i = 0; i < size; i++) {
                                     array.pushBeg(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 array.popBeg();
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size - 1; i++) {
                                     array.popEnd();
                                 }
@@ -218,10 +231,10 @@ void arrayMenu(){
                                 for (int i = 0; i < size; i++) {
                                     array.pushEnd(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 array.popEnd();
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size - 1; i++) {
                                     array.popEnd();
                                 }
@@ -231,14 +244,12 @@ void arrayMenu(){
                                 for (int i = 0; i < size; i++) {
                                     array.pushBeg(rand() % size);
                                 }
-                                cout << "Choose index: " << endl;
-                                int index;
-                                cin >> index;
+                                int index = rand() % size;
                                 cin.clear();
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 array.deleteIndex(index - 1);
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size - 1; i++) {
                                     array.popEnd();
                                 }
@@ -252,17 +263,14 @@ void arrayMenu(){
                         int size;
                         cin >> size;
                         cin.clear();
-                        cout << "Choose value to look for:\n";
-                        int val;
-                        cin >> val;
-                        cin.clear();
+                        int val = rand() % size;
                         for (int i = 0; i < size; i++) {
                             array.pushBeg(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         array.contains(val);
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < size; i++) {
                             array.popEnd();
                         }
@@ -287,7 +295,7 @@ void listMenu(){
     const string options = "\nb - Beginning\ne - End\nc - Choose\n";
 
     while (true){
-        cout << "Choose operation: \n" + operations;
+        cout << endl << "Choose operation: \n" + operations;
 
         char input;
         cin >> input;
@@ -403,7 +411,6 @@ void listMenu(){
             }
 
             case 't':{
-                Stoper stoper;
                 cout << "Choose operation to check:\n" + timeOptions << endl;
 
                 char input1;
@@ -419,7 +426,7 @@ void listMenu(){
 
                         cin.clear();
 
-                        cout << "Choose position:\nb - Beginning\ne - End\n";
+                        cout << "Choose position:\nb - Beginning\ne - End\nc - Choose index\n";
                         char input2;
                         cin >> input2;
 
@@ -430,10 +437,10 @@ void listMenu(){
                                 for (int i = 0; i < size; i++) {
                                     list.pushBeg(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 list.pushBeg(rand() % size);
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size + 1; i++) {
                                     list.popBeg();
                                 }
@@ -443,10 +450,25 @@ void listMenu(){
                                 for (int i = 0; i < size; i++) {
                                     list.pushEnd(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 list.pushEnd(rand() % size);
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
+                                for (int i = 0; i < size + 1; i++) {
+                                    list.popEnd();
+                                }
+                                break;
+                            }
+                            case 'c': {
+                                int val = rand() % size;
+                                int index = rand() % size;
+                                for (int i = 0; i < size; i++) {
+                                    list.pushEnd(rand() % size);
+                                }
+                                auto start = chrono::high_resolution_clock::now();
+                                list.insert(val, index);
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size + 1; i++) {
                                     list.popEnd();
                                 }
@@ -469,10 +491,10 @@ void listMenu(){
                                 for (int i = 0; i < size; i++) {
                                     list.pushBeg(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 list.popBeg();
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size - 1; i++) {
                                     list.popEnd();
                                 }
@@ -482,10 +504,10 @@ void listMenu(){
                                 for (int i = 0; i < size; i++) {
                                     list.pushEnd(rand() % size);
                                 }
-                                stoper.startStoper();
+                                auto start = chrono::high_resolution_clock::now();
                                 list.popEnd();
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size - 1; i++) {
                                     list.popEnd();
                                 }
@@ -495,14 +517,11 @@ void listMenu(){
                                 for (int i = 0; i < size; i++) {
                                     list.pushBeg(rand() % size);
                                 }
-                                cout << "Choose index: " << endl;
-                                int index;
-                                cin >> index;
-                                cin.clear();
-                                stoper.startStoper();
+                                int index = rand() % size;
+                                auto start = chrono::high_resolution_clock::now();
                                 list.deleteIndex(index - 1);
-                                stoper.stopStoper();
-                                stoper.showResult();
+                                auto end = chrono::high_resolution_clock::now();
+                                cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                                 for (int i = 0; i < size - 1; i++) {
                                     list.popEnd();
                                 }
@@ -516,17 +535,14 @@ void listMenu(){
                         int size;
                         cin >> size;
                         cin.clear();
-                        cout << "Choose value to look for:\n";
-                        int val;
-                        cin >> val;
-                        cin.clear();
+                        int val = rand() % size;
                         for (int i = 0; i < size; i++) {
                             list.pushBeg(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         list.contains(val);
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < size; i++) {
                             list.popEnd();
                         }
@@ -550,7 +566,7 @@ void heapMenu(){
     Heap heap;
 
     while (true){
-        cout << "\nChoose operation: \n" + operations;
+        cout << endl << "\nChoose operation: \n" + operations;
 
         char input;
         cin >> input;
@@ -612,7 +628,6 @@ void heapMenu(){
             }
 
             case 't':{
-                Stoper stoper;
                 cout << "Choose operation to check:\n" + timeOptions << endl;
 
                 char input1;
@@ -630,10 +645,10 @@ void heapMenu(){
                         for (int i = 0; i < size; i++) {
                             heap.add(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         heap.add(rand() % size);
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < heap.size; i++) {
                             heap.pop();
                         }
@@ -648,10 +663,10 @@ void heapMenu(){
                         for (int i = 0; i < size; i++) {
                             heap.add(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         heap.pop();
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < heap.size; i++) {
                             heap.pop();
                         }
@@ -662,17 +677,14 @@ void heapMenu(){
                         int size;
                         cin >> size;
                         cin.clear();
-                        cout << "Choose value to look for:\n";
-                        int val;
-                        cin >> val;
-                        cin.clear();
+                        int val = rand() % size;
                         for (int i = 0; i < size; i++) {
                             heap.add(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         heap.contains(val);
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < heap.size; i++) {
                             heap.pop();
                         }
@@ -697,7 +709,7 @@ void RBTreeMenu(){
 
 
     while (true){
-        cout << "\nChoose operation: \n" + operations;
+        cout << endl << "\nChoose operation: \n" + operations;
 
         char input;
         cin >> input;
@@ -757,7 +769,6 @@ void RBTreeMenu(){
             }
 
             case 't':{
-                Stoper stoper;
                 cout << "Choose operation to check:\n" + timeOptions << endl;
 
                 char input1;
@@ -773,10 +784,10 @@ void RBTreeMenu(){
                         for (int i = 0; i < size; i++){
                             redBlackTree.add(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         redBlackTree.add(rand() % size);
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < redBlackTree.size; i++){
                             redBlackTree.popRoot();
                         }
@@ -792,10 +803,10 @@ void RBTreeMenu(){
                         for (int i = 0; i < size; i++){
                             redBlackTree.add(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         redBlackTree.popRoot();
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < redBlackTree.size; i++){
                             redBlackTree.popRoot();
                         }
@@ -807,17 +818,14 @@ void RBTreeMenu(){
                         int size;
                         cin >> size;
                         cin.clear();
-                        cout << "Choose value to look for:\n";
-                        int val;
-                        cin >> val;
-                        cin.clear();
+                        int val = rand() % size;
                         for (int i = 0; i < size; i++) {
                             redBlackTree.add(rand() % size);
                         }
-                        stoper.startStoper();
+                        auto start = chrono::high_resolution_clock::now();
                         redBlackTree.contains(val);
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        auto end = chrono::high_resolution_clock::now();
+                        cout << endl << "Time [ns]: " << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << endl;
                         for (int i = 0; i < redBlackTree.size; i++) {
                             redBlackTree.popRoot();
                         }
@@ -842,7 +850,7 @@ int main() {
     srand(time(nullptr));
 
     while(true){
-        cout << "Choose structure: \n" + structures;
+        cout << endl << "Choose structure: \n" + structures;
         char input;
         cin >> input;
         cin.clear();
