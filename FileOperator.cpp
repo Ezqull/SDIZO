@@ -4,7 +4,7 @@
 
 using namespace std;
 
-FileOperator ::FileOperator()= default;
+FileOperator ::FileOperator() = default;
 
 FileOperator:: ~FileOperator() = default;
 

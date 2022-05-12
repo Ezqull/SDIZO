@@ -81,6 +81,9 @@ void RedBlackTree::rotateLeft(Node * node){
 }
 
 void RedBlackTree::add(int val){
+    if(contains(val)){
+        return;
+    }
     size++;
     Node *newNode, *uncle;
     newNode = new Node();
@@ -114,7 +117,6 @@ void RedBlackTree::add(int val){
             uncle = newNode->parent->parent->right;
 
             if (uncle->color == 'r'){
-
                 newNode->parent->color = 'b';
                 uncle->color = 'b';
                 newNode->parent->parent->color = 'r';
@@ -132,7 +134,7 @@ void RedBlackTree::add(int val){
             break;
 
         } else {
-            uncle = newNode->parent->parent->left; // mirror uncle
+            uncle = newNode->parent->parent->left;
             if (uncle->color == 'r'){
                 newNode->parent->color = 'b';
                 uncle->color = 'b';
@@ -235,7 +237,7 @@ void RedBlackTree::deleteNode(Node *node) {
                 rotateLeft(z->parent);
                 z = root;
 
-            } else {
+            } else if (z == z->parent->right) {
                 x = z->parent->left;
 
                 if (x->color == 'r') {

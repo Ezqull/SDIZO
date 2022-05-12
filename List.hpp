@@ -17,7 +17,7 @@ public:
 
     void popBeg();                          // usunięcie z początku
     void popEnd();                          // usunięcie z końca
-    void deleteVal(int val);                // usunięcie podanej wartości
+    void deleteIndex(int index);                // usunięcie podanej wartości
 
     bool contains(int val) const;                 // sprawdzenie czy lista zawiera element
 

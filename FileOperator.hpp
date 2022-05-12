@@ -10,6 +10,7 @@ private:
     fstream file;
     string fileName;
     int size;
+    float avg;
 
 public:
     int* data;

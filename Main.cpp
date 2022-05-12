@@ -93,8 +93,8 @@ void arrayMenu(){
                     }
 
                     case 'c':{
-                        cout << "Write value to delete: \n";
-                        array.deleteVal(getUserInputNum());
+                        cout << "Enter index: \n";
+                        array.deleteIndex(getUserInputNum() - 1);
                         break;
                     }
                 }
@@ -127,77 +127,103 @@ void arrayMenu(){
 
                 switch (getUserInputChar()) {
                     case 'a':{
-                        cout << "How much number to add?\n";
+                        cout << "Enter size of structure:\n";
                         int size = getUserInputNum();
                         cout << "Choose position:\nb - beginning\ne - end\n";
                         switch (getUserInputChar()) {
                             case 'b': {
-                                stoper.startStoper();
                                 for (int i = 0; i < size; i++) {
-                                    array.pushBeg(rand() % 15);
+                                    array.pushBeg(rand() % size);
                                 }
+                                stoper.startStoper();
+                                array.pushBeg(rand() % size);
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size + 1; i++) {
+                                    array.popBeg();
+                                }
                                 break;
                             }
                             case 'e': {
-                                stoper.startStoper();
                                 for (int i = 0; i < size; i++) {
-                                    array.pushEnd(rand() % 15);
+                                    array.pushEnd(rand() % size);
                                 }
+                                stoper.startStoper();
+                                array.pushEnd(rand() % size);
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size + 1; i++) {
+                                    array.popEnd();
+                                }
                                 break;
                             }
                         }
                         break;
                     }
                     case 'd':{
-                        cout << "How much number to delete?\n";
+                        cout << "Enter size of structure:\n";
                         int size = getUserInputNum();
-                        cout << "Choose position:\nb - beginning\ne - end\n";
+                        cout << "Choose position:\nb - beginning\ne - end\nc - choose position\n";
                         switch (getUserInputChar()) {
                             case 'b': {
                                 for (int i = 0; i < size; i++) {
-                                    array.pushBeg(rand() % 15);
+                                    array.pushBeg(rand() % size);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++) {
-                                    array.popBeg();
-                                }
+                                array.popBeg();
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size - 1; i++) {
+                                    array.popEnd();
+                                }
                                 break;
                             }
                             case 'e': {
                                 for (int i = 0; i < size; i++) {
-                                    array.pushEnd(rand() % 15);
+                                    array.pushEnd(rand() % size);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++) {
-                                    array.popEnd();
-                                }
+                                array.popEnd();
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size - 1; i++) {
+                                    array.popEnd();
+                                }
+                                break;
+                            }
+                            case 'c': {
+                                for (int i = 0; i < size; i++) {
+                                    array.pushBeg(rand() % size);
+                                }
+                                cout << "Choose index: " << endl;
+                                int index = getUserInputNum();
+                                stoper.startStoper();
+                                array.deleteIndex(index - 1);
+                                stoper.stopStoper();
+                                stoper.showResult();
+                                for (int i = 0; i < size - 1; i++) {
+                                    array.popEnd();
+                                }
                                 break;
                             }
                         }
                         break;
                     }
                     case 's':{
+                        cout << "Enter size of structure:\n";
+                        int size = getUserInputNum();
                         cout << "Choose value to look for:\n";
                         int val = getUserInputNum();
+                        for (int i = 0; i < size; i++) {
+                            array.pushBeg(rand() % size);
+                        }
                         stoper.startStoper();
                         array.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
-                        break;
-                    }
-                    case 'p':{
-                        stoper.startStoper();
-                        array.print();
-                        stoper.stopStoper();
-                        stoper.showResult();
+                        for (int i = 0; i < size; i++) {
+                            array.popEnd();
+                        }
                         break;
                     }
                 }
@@ -276,8 +302,8 @@ void listMenu(){
                     }
 
                     case 'c':{
-                        cout << "Write value to delete: \n";
-                        list.deleteVal(getUserInputNum());
+                        cout << "Enter index: \n";
+                        list.deleteIndex(getUserInputNum() - 1);
                         break;
                     }
                 }
@@ -315,21 +341,29 @@ void listMenu(){
                         cout << "Choose position:\nb - beginning\ne - end\n";
                         switch (getUserInputChar()) {
                             case 'b':{
-                                stoper.startStoper();
                                 for (int i = 0; i < size; i++){
-                                    list.pushBeg(rand()%15);
+                                    list.pushBeg(rand() % size);
                                 }
+                                stoper.startStoper();
+                                list.pushBeg(rand() % size);
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size + 1; i++) {
+                                    list.popBeg();
+                                }
                                 break;
                             }
                             case 'e':{
-                                stoper.startStoper();
                                 for (int i = 0; i < size; i++){
-                                    list.pushEnd(rand()%15);
+                                    list.pushEnd(rand() % size);
                                 }
+                                stoper.startStoper();
+                                list.pushEnd(rand()%size);
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size + 1; i++) {
+                                    list.popEnd();
+                                }
                                 break;
                             }
                         }
@@ -342,38 +376,48 @@ void listMenu(){
                         switch (getUserInputChar()) {
                             case 'b': {
                                 for (int i = 0; i < size; i++) {
-                                    list.pushBeg(rand() % 15);
+                                    list.pushBeg(rand() % size);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++) {
-                                    list.popBeg();
-                                }
+                                list.popBeg();
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size - 1; i++) {
+                                    list.popBeg();
+                                }
                                 break;
                             }
                             case 'e': {
                                 for (int i = 0; i < size; i++) {
-                                    list.pushEnd(rand() % 15);
+                                    list.pushEnd(rand() % size);
                                 }
                                 stoper.startStoper();
-                                for (int i = 0; i < size; i++) {
-                                    list.popEnd();
-                                }
+                                list.popEnd();
                                 stoper.stopStoper();
                                 stoper.showResult();
+                                for (int i = 0; i < size - 1; i++) {
+                                    list.popEnd();
+                                }
                                 break;
                             }
                         }
                         break;
                     }
                     case 's':{
+                        cout << "Enter size of structure:\n";
+                        int size = getUserInputNum();
                         cout << "Choose value to look for:\n";
                         int val = getUserInputNum();
+                        for (int i = 0; i < size; i++) {
+                            list.pushBeg(rand() % size);
+                        }
                         stoper.startStoper();
                         list.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size; i++) {
+                            list.popEnd();
+                        }
                         break;
                     }
                     break;
@@ -449,12 +493,17 @@ void heapMenu(){
                     case 'a':{
                         cout << "How much number to add?\n";
                         int size = getUserInputNum();
-                        stoper.startStoper();
-                        for (int i = 0; i < size; i++){
-                            heap.add(rand()%15);
+
+                        for (int i = 0; i < size; i++) {
+                            heap.add(rand() % size);
                         }
+                        stoper.startStoper();
+                        heap.add(rand() % size);
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size + 1; i++) {
+                            heap.pop();
+                        }
                         break;
                     }
                     case 'd': {
@@ -462,23 +511,32 @@ void heapMenu(){
                         int size = getUserInputNum();
 
                         for (int i = 0; i < size; i++) {
-                            heap.add(rand() % 15);
+                            heap.add(rand() % size);
                         }
                         stoper.startStoper();
-                        for (int i = 0; i < size; i++) {
-                            heap.pop();
-                        }
+                        heap.pop();
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size - 1; i++) {
+                            heap.pop();
+                        }
                         break;
                     }
                     case 's':{
+                        cout << "Enter size of structure:\n";
+                        int size = getUserInputNum();
                         cout << "Choose value to look for:\n";
                         int val = getUserInputNum();
+                        for (int i = 0; i < size; i++) {
+                            heap.add(rand() % size);
+                        }
                         stoper.startStoper();
                         heap.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size; i++) {
+                            heap.pop();
+                        }
                         break;
                     }
                 }
@@ -552,12 +610,16 @@ void RBTreeMenu(){
                     case 'a':{
                         cout << "How much number to add?\n";
                         int size = getUserInputNum();
-                        stoper.startStoper();
                         for (int i = 0; i < size; i++){
-                            redBlackTree.add(rand()%15);
+                            redBlackTree.add(rand() % size);
                         }
+                        stoper.startStoper();
+                        redBlackTree.add(rand() % size);
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size + 1; i++){
+                            redBlackTree.popRoot();
+                        }
                         break;
                     }
 
@@ -566,24 +628,33 @@ void RBTreeMenu(){
                         int size = getUserInputNum();
 
                         for (int i = 0; i < size; i++){
-                            redBlackTree.add(rand()%15);
+                            redBlackTree.add(rand() % size);
                         }
                         stoper.startStoper();
-                        for (int i = 0; i < size; i++){
-                            redBlackTree.popRoot();
-                        }
+                        redBlackTree.popRoot();
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size - 1; i++){
+                            redBlackTree.popRoot();
+                        }
                         break;
                     }
 
                     case 's':{
+                        cout << "Enter size of structure:\n";
+                        int size = getUserInputNum();
                         cout << "Choose value to look for:\n";
                         int val = getUserInputNum();
+                        for (int i = 0; i < size; i++) {
+                            redBlackTree.add(rand() % size);
+                        }
                         stoper.startStoper();
                         redBlackTree.contains(val);
                         stoper.stopStoper();
                         stoper.showResult();
+                        for (int i = 0; i < size; i++) {
+                            redBlackTree.popRoot();
+                        }
                         break;
                     }
                 }

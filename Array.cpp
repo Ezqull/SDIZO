@@ -64,6 +64,10 @@ void Array::pushEnd(int val) {
 
 void Array::popBeg() {
 
+    if(arraySize == 0){
+        return;
+    }
+
     int newSize = arraySize - 1;
     int *newArray = new int[newSize];
 
@@ -77,6 +81,10 @@ void Array::popBeg() {
 
 void Array::popEnd() {
 
+    if(arraySize == 0){
+        return;
+    }
+
     int newSize = arraySize - 1;
     int *newArray = new int[newSize];
 
@@ -88,31 +96,23 @@ void Array::popEnd() {
     arraySize = newSize;
 }
 
-void Array::deleteVal(int val) {
+void Array::deleteIndex(int index) {
 
-    if(!contains(val)){
-        std::cout << "Value not found";
+    if(arraySize == 0){
         return;
-
-    }else {
-
-        int i = 0;
-
-        while(array[i] != val){
-            i++;
-        }
-
-        int newSize = arraySize - 1;
-        int *newArray = new int[newSize];
-
-        std::copy(array, array + i, newArray);
-        std::copy(array + i + 1, array + arraySize, newArray + i);
-
-        delete[] array;
-        array = newArray;
-
-        arraySize = newSize;
     }
+
+
+    int newSize = arraySize - 1;
+    int *newArray = new int[newSize];
+
+    std::copy(array, array + index, newArray);
+    std::copy(array + index + 1, array + arraySize, newArray + index);
+
+    delete[] array;
+
+    array = newArray;
+    arraySize = newSize;
 }
 
 bool Array::contains(int val) {
@@ -137,4 +137,3 @@ void Array::print() const
     }
     std::cout << std::endl;
 }
-#pragma clang diagnostic pop

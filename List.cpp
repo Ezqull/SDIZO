@@ -120,28 +120,22 @@ void List::popEnd() {
     size--;
 }
 
-void List::deleteVal(int val) {
+void List::deleteIndex(int index) {
 
-    if(!contains(val)){
-        std::cout << "Value not found";
-        return;
+    if(index == 0){
+        popBeg();
+    }else if(index == size - 1) {
+        popEnd();
     }else{
-
         Node *tmp = first;
-
-        for(int i = 0; i < size; i++){
-            if(val == tmp->val && i == 0){
-                popBeg();
-            }else if(val == tmp->val && i == size - 1){
-                popEnd();
-            }else if(val == tmp->val && i != 0 && i != size - 1){
-                (tmp->next)->prev = tmp->prev;
-                (tmp->prev)->next = tmp->next;
-                delete tmp;
-                size--;
-                return;
-            }
+        for(int i = 0; i < index; i++){
+            tmp = tmp->next;
         }
+        (tmp->next)->prev = tmp->prev;
+        (tmp->prev)->next = tmp->next;
+        delete tmp;
+        size--;
+        return;
     }
 }
 

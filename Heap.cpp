@@ -23,11 +23,11 @@ void Heap::expandSize(){
 
 void Heap::add(int val) {
 
+    size++;
+
     if (size == max){
         expandSize();
     }
-
-    size++;
 
     int index = size - 1;
     array[index] = val;
@@ -41,7 +41,6 @@ void Heap::add(int val) {
         index = parent;
         parent = getParent(index);
     }
-
 }
 
 void Heap::deleteVal(int val) {
@@ -125,20 +124,20 @@ void Heap::print() const {
 
     }else {
         int levelElements = 1;
-        int n = 0;
+        int n = 1;
 
 
         for (int i = 0; i < size; i++) {
 
-            for(int j = 0; j < max / levelElements; j++){
+            for(int j = 0; j <  n * (size / (levelElements)); j++){
                 std::cout << "  ";
             }
             std::cout << array[i];
             n++;
-            if (n == levelElements){
+            if (n - 1 == levelElements){
                 levelElements *= 2;
-                n = 0;
-                std::cout << std::endl;
+                n = 1;
+                std::cout << std::endl << std::endl;
             }
         }
     }
