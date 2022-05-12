@@ -26,7 +26,6 @@ void Array::insert(int val, int index){
 
     newArray[index] = val;
 
-    delete[] array;
     array = newArray;
 
     arraySize = newSize;
@@ -41,7 +40,6 @@ void Array::pushBeg(int val) {
 
     newArray[0] = val;
 
-    delete[] array;
     array = newArray;
 
     arraySize = newSize;
@@ -56,7 +54,6 @@ void Array::pushEnd(int val) {
 
     newArray[arraySize] = val;
 
-    delete[] array;
     array = newArray;
 
     arraySize = newSize;
@@ -73,7 +70,6 @@ void Array::popBeg() {
 
     std::copy(array + 1, array + arraySize, newArray);
 
-    delete[] array;
     array = newArray;
 
     arraySize = newSize;
@@ -90,7 +86,6 @@ void Array::popEnd() {
 
     std::copy(array, array + arraySize - 1, newArray);
 
-    delete[] array;
     array = newArray;
 
     arraySize = newSize;
@@ -102,14 +97,17 @@ void Array::deleteIndex(int index) {
         return;
     }
 
+    if(index == 0){
+        popBeg();
+    }else if(index == arraySize - 1){
+        popEnd();
+    }
 
     int newSize = arraySize - 1;
     int *newArray = new int[newSize];
 
     std::copy(array, array + index, newArray);
     std::copy(array + index + 1, array + arraySize, newArray + index);
-
-    delete[] array;
 
     array = newArray;
     arraySize = newSize;

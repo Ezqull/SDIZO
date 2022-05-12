@@ -26,7 +26,5 @@ long long int Stoper::stopStoper() {
 
 void Stoper::showResult() {
     time = (float)elapsed / (float)frequency;
-    cout << "\nTime [s] = " << fixed << setprecision(3) << time << endl;
-    cout << "Time [ms] = " << setprecision(0) << 1000.0 * time << endl;
-    cout << "Time [us] = " << setprecision(0) << 1000000.0 * time << "\n\n";
+    cout << "\nTime [ns] = " << fixed << setprecision(0) << 1000000000.0 * time << "\n\n";
 }

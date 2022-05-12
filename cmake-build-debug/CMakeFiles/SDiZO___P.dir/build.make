@@ -72,99 +72,99 @@ CMakeFiles/SDiZO___P.dir/Main.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/Main.cpp.obj: ../Main.cpp
 CMakeFiles/SDiZO___P.dir/Main.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SDiZO___P.dir/Main.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Main.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Main.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Main.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Main.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Main.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Main.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Main.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Main.cpp"
 
 CMakeFiles/SDiZO___P.dir/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/Main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Main.cpp" > CMakeFiles\SDiZO___P.dir\Main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Main.cpp" > CMakeFiles\SDiZO___P.dir\Main.cpp.i
 
 CMakeFiles/SDiZO___P.dir/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/Main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Main.cpp" -o CMakeFiles\SDiZO___P.dir\Main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Main.cpp" -o CMakeFiles\SDiZO___P.dir\Main.cpp.s
 
 CMakeFiles/SDiZO___P.dir/Array.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/Array.cpp.obj: ../Array.cpp
 CMakeFiles/SDiZO___P.dir/Array.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SDiZO___P.dir/Array.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Array.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Array.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Array.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Array.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Array.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Array.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Array.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Array.cpp"
 
 CMakeFiles/SDiZO___P.dir/Array.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/Array.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Array.cpp" > CMakeFiles\SDiZO___P.dir\Array.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Array.cpp" > CMakeFiles\SDiZO___P.dir\Array.cpp.i
 
 CMakeFiles/SDiZO___P.dir/Array.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/Array.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Array.cpp" -o CMakeFiles\SDiZO___P.dir\Array.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Array.cpp" -o CMakeFiles\SDiZO___P.dir\Array.cpp.s
 
 CMakeFiles/SDiZO___P.dir/List.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/List.cpp.obj: ../List.cpp
 CMakeFiles/SDiZO___P.dir/List.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SDiZO___P.dir/List.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/List.cpp.obj -MF CMakeFiles\SDiZO___P.dir\List.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\List.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\List.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/List.cpp.obj -MF CMakeFiles\SDiZO___P.dir\List.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\List.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\List.cpp"
 
 CMakeFiles/SDiZO___P.dir/List.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/List.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\List.cpp" > CMakeFiles\SDiZO___P.dir\List.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\List.cpp" > CMakeFiles\SDiZO___P.dir\List.cpp.i
 
 CMakeFiles/SDiZO___P.dir/List.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/List.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\List.cpp" -o CMakeFiles\SDiZO___P.dir\List.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\List.cpp" -o CMakeFiles\SDiZO___P.dir\List.cpp.s
 
 CMakeFiles/SDiZO___P.dir/Heap.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/Heap.cpp.obj: ../Heap.cpp
 CMakeFiles/SDiZO___P.dir/Heap.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SDiZO___P.dir/Heap.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Heap.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Heap.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Heap.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Heap.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Heap.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Heap.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Heap.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Heap.cpp"
 
 CMakeFiles/SDiZO___P.dir/Heap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/Heap.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Heap.cpp" > CMakeFiles\SDiZO___P.dir\Heap.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Heap.cpp" > CMakeFiles\SDiZO___P.dir\Heap.cpp.i
 
 CMakeFiles/SDiZO___P.dir/Heap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/Heap.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Heap.cpp" -o CMakeFiles\SDiZO___P.dir\Heap.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Heap.cpp" -o CMakeFiles\SDiZO___P.dir\Heap.cpp.s
 
 CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj: ../Stoper.cpp
 CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Stoper.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Stoper.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Stoper.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/Stoper.cpp.obj -MF CMakeFiles\SDiZO___P.dir\Stoper.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\Stoper.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Stoper.cpp"
 
 CMakeFiles/SDiZO___P.dir/Stoper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/Stoper.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Stoper.cpp" > CMakeFiles\SDiZO___P.dir\Stoper.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Stoper.cpp" > CMakeFiles\SDiZO___P.dir\Stoper.cpp.i
 
 CMakeFiles/SDiZO___P.dir/Stoper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/Stoper.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Stoper.cpp" -o CMakeFiles\SDiZO___P.dir\Stoper.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\Stoper.cpp" -o CMakeFiles\SDiZO___P.dir\Stoper.cpp.s
 
 CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.obj: ../RedBlackTree.cpp
 CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.obj -MF CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\RedBlackTree.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.obj -MF CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\RedBlackTree.cpp"
 
 CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\RedBlackTree.cpp" > CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\RedBlackTree.cpp" > CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.i
 
 CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/RedBlackTree.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\RedBlackTree.cpp" -o CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\RedBlackTree.cpp" -o CMakeFiles\SDiZO___P.dir\RedBlackTree.cpp.s
 
 CMakeFiles/SDiZO___P.dir/FileOperator.cpp.obj: CMakeFiles/SDiZO___P.dir/flags.make
 CMakeFiles/SDiZO___P.dir/FileOperator.cpp.obj: ../FileOperator.cpp
 CMakeFiles/SDiZO___P.dir/FileOperator.cpp.obj: CMakeFiles/SDiZO___P.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SDiZO___P.dir/FileOperator.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/FileOperator.cpp.obj -MF CMakeFiles\SDiZO___P.dir\FileOperator.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\FileOperator.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\FileOperator.cpp"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SDiZO___P.dir/FileOperator.cpp.obj -MF CMakeFiles\SDiZO___P.dir\FileOperator.cpp.obj.d -o CMakeFiles\SDiZO___P.dir\FileOperator.cpp.obj -c "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\FileOperator.cpp"
 
 CMakeFiles/SDiZO___P.dir/FileOperator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SDiZO___P.dir/FileOperator.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\FileOperator.cpp" > CMakeFiles\SDiZO___P.dir\FileOperator.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\FileOperator.cpp" > CMakeFiles\SDiZO___P.dir\FileOperator.cpp.i
 
 CMakeFiles/SDiZO___P.dir/FileOperator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SDiZO___P.dir/FileOperator.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\FileOperator.cpp" -o CMakeFiles\SDiZO___P.dir\FileOperator.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\ezzqu\OneDrive\Pulpit\SDiZO - P\SDIZO\FileOperator.cpp" -o CMakeFiles\SDiZO___P.dir\FileOperator.cpp.s
 
 # Object files for target SDiZO___P
 SDiZO___P_OBJECTS = \

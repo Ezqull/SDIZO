@@ -10,14 +10,13 @@ private:
     fstream file;
     string fileName;
     int size;
-    float avg;
 
 public:
     int* data;
     FileOperator();
     ~FileOperator();
-    void readFile();
-    void generateNumbersToFile();
-    int getSize();
+    bool readFile();
+    bool generateNumbersToFile();
+    int getSize() const;
 };
 

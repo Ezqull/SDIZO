@@ -8,7 +8,7 @@ FileOperator ::FileOperator() = default;
 
 FileOperator:: ~FileOperator() = default;
 
-void FileOperator::generateNumbersToFile() {
+bool FileOperator::generateNumbersToFile() {
 
     int range;
     int amount;
@@ -20,20 +20,21 @@ void FileOperator::generateNumbersToFile() {
     cin >> range;
 
     file.open("random-numbers.txt", ios::out);
-    if (file.is_open()) {
+    if (file.good()) {
         file << amount << endl;
         for (int i = 0; i < amount; i++) {
             file << (rand() % range + 1) << endl;
         }
     }
     else {
-        cout << "ERROR!";
-        exit(-1);
+        cout << "ERROR!" << endl;
+        return false;
     }
     file.close();
+    return true;
 }
 
-void FileOperator::readFile() {
+bool FileOperator::readFile() {
 
     string line;
     int lineNr = 1;
@@ -43,7 +44,7 @@ void FileOperator::readFile() {
 
     file.open(input, ios::in);
 
-    if (file.is_open()) {
+    if (file.good()) {
 
         getline(file, line);
         size = stoi(line);
@@ -55,12 +56,13 @@ void FileOperator::readFile() {
         }
     }
     else {
-        cout << "ERROR!";
-        exit(-1);
+        cout << "ERROR!" << endl;
+        return false;
     }
     file.close();
+    return true;
 }
 
-int FileOperator::getSize() {
+int FileOperator::getSize() const {
     return size;
 }

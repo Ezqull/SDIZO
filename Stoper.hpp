@@ -6,7 +6,6 @@ public:
 	long long int startStoper();
 	long long int stopStoper();
 	void showResult();
-    void averageTime();
 
 private:
 	long long int frequency, start, elapsed;

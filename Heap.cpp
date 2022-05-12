@@ -2,65 +2,55 @@
 #include <iostream>
 #include "Heap.hpp"
 
-Heap::Heap() : size(0), max(1){}
+Heap::Heap() : size(0){
+    array = nullptr;
+}
 
 Heap::~Heap() {
-
     delete[] array;
 }
 
-void Heap::expandSize(){
-
-    max = max * 2;
-    int *tmp = new int[max];
-    for (int i = 0; i <= max / 2; i++)
-    {
-
-        tmp[i]= array[i];
-    }
-    array = tmp;
-}
 
 void Heap::add(int val) {
 
+    if(size == 0){
+        array = new int[1];
+        array[0] = val;
+    }else {
+
+        int *tmp = new int[size + 1];
+        std::copy(array, array + size, tmp);
+
+        delete[] array;
+        array = tmp;
+
+        int index = size;
+        int parent = getParent(index);
+
+        while (index > 0 && array[parent] < val) {
+
+            array[index] = array[parent];
+            index = parent;
+            parent = getParent(parent);
+        }
+        array[index] = val;
+    }
     size++;
-
-    if (size == max){
-        expandSize();
-    }
-
-    int index = size - 1;
-    array[index] = val;
-    int parent = getParent(index);
-
-    while (index >= 0 && array[parent] < array[index]){
-
-        int tmp = array[parent];
-        array[parent] = array[index];
-        array[index] = tmp;
-        index = parent;
-        parent = getParent(index);
-    }
 }
 
-void Heap::deleteVal(int val) {
+void Heap::deleteIndex(int index) {
 
-    if(!contains(val)){
-        std::cout << "Value not found";
+    if(index > size){
+        std::cout << "Out of range";
         return;
 
     }else{
-        int i = size - 1;
-        while (array[i] != val){
-            i--;
-        }
 
         int *tmp = new int[size - 1];
 
-        std::copy(array, array + i, tmp);
-        std::copy(array + i + 1, array + size, tmp + i);
+        std::copy(array, array + index, tmp);
+        std::copy(array + index + 1, array + size, tmp + index);
 
-        delete[] array;
         array = tmp;
 
         size--;
@@ -77,7 +67,6 @@ void Heap::pop(){
 
     std::copy(array, array + size - 1 , tmp);
 
-    delete[] array;
     array = tmp;
 
     size--;
@@ -102,8 +91,7 @@ void Heap::heapify(int index) const {
         int tmp = array[largest];
         array[largest] = array[index];
         array[index] = tmp;
-        index = largest;
-        largest = getParent(index);
+        heapify(largest);
     }
 }
 
