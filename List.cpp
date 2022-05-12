@@ -51,7 +51,7 @@ void List::pushEnd(int val) {
 
 void List::insert(int val, unsigned int index) {
 
-    if (index <= size){
+    if (index <= size && index >=0){
         if (index == 0){
             pushBeg(val);
         }else if (index == size){
@@ -121,6 +121,10 @@ void List::popEnd() {
 }
 
 void List::deleteIndex(int index) {
+
+    if(index >= size || index < 0){
+        return;
+    }
 
     if(index == 0){
         popBeg();

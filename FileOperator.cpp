@@ -16,8 +16,16 @@ bool FileOperator::generateNumbersToFile() {
     cout << "Enter amount of numbers to generate: " << endl;
     cin >> amount;
 
+    if(amount < 1){
+        return false;
+    }
+
     cout << "Enter range of numbers to generate: " << endl;
     cin >> range;
+
+    if(range < 1){
+        return false;
+    }
 
     file.open("random-numbers.txt", ios::out);
     if (file.good()) {

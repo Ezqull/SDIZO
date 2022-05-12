@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.22"
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SDiZO___P::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDiZO___P-Debug-e3564848cafaef00f3fe.json",
+					"jsonFile" : "target-SDiZO___P-Debug-d30ac659349a0c0cc652.json",
 					"name" : "SDiZO___P",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/samolot/Desktop/SDIZO/cmake-build-debug",
-		"source" : "/Users/samolot/Desktop/SDIZO"
+		"build" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO/cmake-build-debug",
+		"source" : "C:/Users/ezzqu/OneDrive/Pulpit/SDiZO - P/SDIZO"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 3
 	}
 }

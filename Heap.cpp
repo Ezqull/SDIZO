@@ -40,7 +40,7 @@ void Heap::add(int val) {
 
 void Heap::deleteIndex(int index) {
 
-    if(index > size){
+    if(index >= size){
         std::cout << "Out of range";
         return;
 
